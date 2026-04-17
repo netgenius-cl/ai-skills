@@ -1,0 +1,5 @@
+interface:
+  display_name: "Agente Netgenius"
+  short_description: "Asistente simple que coordina y resuelve"
+  default_prompt: "Usa $netgenius para ayudarme de forma simple y coordinar lo necesario."
+
