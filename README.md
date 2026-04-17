@@ -8,7 +8,7 @@ Catalogo de Netgenius para varios entornos de agentes.
 
 ## Prompt para agentes
 
-`Lee https://raw.githubusercontent.com/netgenius-cl/ai-skills/main/SETUP.md y configura este entorno.`
+`Lee https://raw.githubusercontent.com/netgenius-cl/ai-skills/main/SETUP.md`
 
 ## Regla critica
 
