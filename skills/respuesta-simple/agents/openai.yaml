@@ -1,0 +1,4 @@
+interface:
+  display_name: "Respuesta Simple"
+  short_description: "Explica y pide cosas sin tecnicismos"
+  default_prompt: "Usa $respuesta-simple para ayudar a una persona no tecnica."
