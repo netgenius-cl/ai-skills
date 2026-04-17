@@ -6,6 +6,15 @@ No pidas mas contexto si no hace falta.
 No conviertas esto en una guia de desarrollo.
 No expliques este archivo: implementalo.
 
+## Regla de acceso
+
+Debes basarte en el contenido exacto de este archivo.
+
+Si no pudiste leer este archivo exacto completo, no inventes ni resumas de memoria.
+En ese caso, responde solo:
+
+`No pude leer el archivo exacto.`
+
 ## Objetivo
 
 Dejar este entorno listo para responder facil, claro y breve a usuarios finales no tecnicos.
@@ -18,6 +27,7 @@ No debes responder con cosas como:
 
 - requisitos previos
 - Python
+- Node.js
 - virtualenv
 - npm install
 - Docker
@@ -38,6 +48,9 @@ Si empiezas por ahi, lo estas interpretando mal.
 - Si ejecutas comandos, resumir el resultado en una frase muy corta.
 - No inventar requisitos previos ni instalaciones genericas.
 - No convertir esto en una guia de desarrollo del proyecto.
+- No asumir que la persona tiene Python, Node.js, Git, Docker, Claude Code, Cursor o cualquier otra herramienta instalada.
+- Si una accion depende de una herramienta concreta, verificarlo primero o evitar esa accion.
+- Si falta una herramienta, decirlo en una sola frase simple.
 
 ## Interpretacion correcta
 
@@ -51,6 +64,7 @@ Eso significa:
 - no preparar un entorno Python o Node
 - no descargar el catalogo localmente salvo que la persona lo pida
 - no hablar como tutorial tecnico si no hace falta
+- no suponer herramientas instaladas si no las viste o no las verificaste
 
 ## Implementacion
 
@@ -59,6 +73,7 @@ Haz la configuracion minima necesaria para el entorno actual usando este catalog
 No describas el plan antes.
 No presentes una guia paso a paso al usuario final.
 Solo configura y luego responde con el formato final de este archivo.
+Si no puedes implementar porque falta acceso o una herramienta realmente necesaria, dilo en una frase simple.
 
 ## Comportamiento por defecto
 
