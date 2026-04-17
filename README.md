@@ -55,6 +55,7 @@ Si un agente recibe una instruccion como "lee este README y configura este entor
 - [environments/codex/](./environments/codex/README.md): guia para Codex
 - [environments/claude-code/](./environments/claude-code/README.md): memoria y hooks para Claude Code
 - [environments/cursor/](./environments/cursor/README.md): rules, AGENTS.md y background agents para Cursor
+- [environments/cloud-no-skills/](./environments/cloud-no-skills/README.md): agentes en la nube sin skills persistentes
 
 ## Que hacer segun el entorno
 
@@ -69,6 +70,10 @@ Usar la version de `netgenius` para `CLAUDE.md` y opcionalmente hooks desde [env
 ### Cursor
 
 Usar la version de `netgenius` para `AGENTS.md`, Project Rules y opcionalmente background agents desde [environments/cursor/](./environments/cursor/README.md).
+
+### Cloud sin skills
+
+Usar la version informativa para agentes como Gemini desde [environments/cloud-no-skills/](./environments/cloud-no-skills/README.md).
 
 ## Skill principal
 

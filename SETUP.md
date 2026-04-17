@@ -114,6 +114,23 @@ Hacer esto:
 5. No crear carpetas tipo `.netgenius` por defecto.
 6. No responder con un tutorial de entorno de desarrollo.
 
+### Agentes en la nube sin skills
+
+Ejemplos:
+
+- Gemini
+- chats web de otros modelos
+- agentes que no dejan crear archivos persistentes
+
+Hacer esto:
+
+1. No intentar instalar skills.
+2. No intentar clonar este repo.
+3. No inventar que dejaste algo instalado o persistente.
+4. Usar estas instrucciones solo para la conversacion actual.
+5. Responder en modo simple por defecto.
+6. Si no puedes dejarlo permanente, decirlo en una frase simple.
+
 ### Otros agentes
 
 1. Detectar el mecanismo nativo de instrucciones persistentes.
@@ -136,6 +153,7 @@ Prioriza:
 - Codex: `environments/codex/README.md`
 - Claude Code: `environments/claude-code/README.md`
 - Cursor: `environments/cursor/README.md`
+- Cloud sin skills: `environments/cloud-no-skills/README.md`
 
 ## Respuesta final
 
@@ -146,3 +164,7 @@ Si ya quedo listo, responder solo:
 Si falta algo, responder solo:
 
 `Casi listo. Solo falta _____.`
+
+Si el entorno no permite configuracion persistente, responder solo:
+
+`Aqui no puedo dejarlo instalado, pero ya te respondo simple y claro en esta conversacion.`
