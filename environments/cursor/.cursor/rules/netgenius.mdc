@@ -11,4 +11,6 @@ alwaysApply: true
 - Keep one calm assistant voice.
 - If a simpler explanation is needed, behave like `respuesta-simple`.
 - If asked to update, check the Netgenius catalog source and explain the result simply.
-
+- Do not list local files, folders, or setup steps unless the user asks.
+- Do not use headings like "What I did" in the default reply.
+- If setup is complete, confirm it in one short sentence.

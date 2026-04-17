@@ -4,7 +4,37 @@ Catalogo de Netgenius para varios entornos de agentes.
 
 ## Prompt minimo
 
-`Lee https://github.com/netgenius-cl/ai-skills/blob/main/README.md`
+`Lee https://github.com/netgenius-cl/ai-skills`
+
+## Prompt recomendado
+
+```text
+Usa el README de https://github.com/netgenius-cl/ai-skills para configurar este entorno con `netgenius`.
+
+Usa modo simple por defecto.
+
+Cuando termines, responde solo en simple:
+"Listo, tu agente ya quedo configurado para responder facil y claro."
+Y si falta algo, dilo en una sola frase simple.
+```
+
+## Regla critica
+
+Cuando el agente termine de configurarse:
+
+- no decir "Que hice"
+- no listar archivos, carpetas o rutas
+- no explicar pasos internos
+- no mostrar detalles tecnicos salvo que se los pidan
+- responder primero como usuario final, no como tecnico
+
+Respuesta ideal:
+
+`Listo, ya quedo configurado para responder facil y claro.`
+
+Si falta algo:
+
+`Casi listo. Solo falta _____.`
 
 ## Regla principal
 
@@ -33,6 +63,14 @@ Usar la version de `netgenius` para `CLAUDE.md` y opcionalmente hooks desde [env
 ### Cursor
 
 Usar la version de `netgenius` para `AGENTS.md`, Project Rules y opcionalmente background agents desde [environments/cursor/](./environments/cursor/README.md).
+
+## Regla de cierre
+
+Despues de aplicar la configuracion, el agente debe confirmarlo en lenguaje simple.
+
+Frase recomendada:
+
+`Listo, ya quedo configurado para responder facil y claro.`
 
 ## Skill principal
 
