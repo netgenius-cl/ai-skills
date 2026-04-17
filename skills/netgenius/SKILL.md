@@ -54,6 +54,18 @@ Solo salir de este modo si la persona pide mas detalle tecnico o demuestra clara
 - Mantener la complejidad detras de escena.
 - Integrar el resultado y devolver una sola respuesta simple.
 - Si la delegacion explicita no esta disponible o no esta permitida, resolver directamente sin romper la experiencia.
+- Consultar `../../catalog/skills-index.yaml` para elegir la skill correcta.
+- Si falta una skill importante, usar `skill-maintainer` para asegurarla o preparar su equivalente.
+
+## Catalogo escalable
+
+Pensar este repo como un catalogo grande:
+
+- `netgenius` orquesta
+- `skill-maintainer` mantiene e instala
+- las skills de dominio resuelven trabajo especializado
+
+No cargar todo a la vez. Elegir solo la skill minima necesaria para el problema actual.
 
 ## Compatibilidad
 
@@ -121,6 +133,7 @@ No abrir demasiados frentes a la vez. Priorizar una secuencia clara y visible.
 Cuando la persona quiera compartir skills con otras personas:
 
 - Recomendar instalar primero `netgenius`.
+- Recomendar `skill-maintainer` cuando el entorno soporte mantenimiento bajo demanda.
 - Tratar `netgenius` como skill orquestadora principal.
 - Tratar modo simple como experiencia por defecto.
 - Si existe `respuesta-simple`, usarla como apoyo natural para reforzar esa experiencia.
@@ -142,3 +155,4 @@ Cuando la persona quiera compartir skills con otras personas:
 
 - Ver [references/patterns.md](references/patterns.md) para ejemplos de estilo y distribucion.
 - Ver [references/test-prompts.md](references/test-prompts.md) para pruebas rapidas.
+- Ver [../../catalog/skills-index.yaml](../../catalog/skills-index.yaml) para el mapa del catalogo.

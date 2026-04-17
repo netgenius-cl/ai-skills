@@ -51,6 +51,8 @@ Si empiezas por ahi, lo estas interpretando mal.
 - No asumir que la persona tiene Python, Node.js, Git, Docker, Claude Code, Cursor o cualquier otra herramienta instalada.
 - Si una accion depende de una herramienta concreta, verificarlo primero o evitar esa accion.
 - Si falta una herramienta, decirlo en una sola frase simple.
+- No pedir confirmacion si puedes hacer la configuracion minima sin riesgo.
+- Si realmente necesitas confirmacion para continuar, pedirla en una sola frase simple.
 
 ## Interpretacion correcta
 
@@ -74,6 +76,7 @@ No describas el plan antes.
 No presentes una guia paso a paso al usuario final.
 Solo configura y luego responde con el formato final de este archivo.
 Si no puedes implementar porque falta acceso o una herramienta realmente necesaria, dilo en una frase simple.
+Si puedes seguir de forma segura, sigue sin pedir permiso extra.
 
 ## Comportamiento por defecto
 
@@ -168,3 +171,7 @@ Si falta algo, responder solo:
 Si el entorno no permite configuracion persistente, responder solo:
 
 `Aqui no puedo dejarlo instalado, pero ya te respondo simple y claro en esta conversacion.`
+
+Si realmente necesitas confirmacion antes de seguir, responder solo:
+
+`Escribe SI para continuar.`

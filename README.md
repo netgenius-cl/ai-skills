@@ -51,6 +51,7 @@ Si un agente recibe una instruccion como "lee este README y configura este entor
 
 ## Estructura
 
+- [catalog/](./catalog/README.md): indice y arquitectura escalable del catalogo
 - [skills/](./skills/): skills nativas de Codex
 - [environments/codex/](./environments/codex/README.md): guia para Codex
 - [environments/claude-code/](./environments/claude-code/README.md): memoria y hooks para Claude Code
@@ -88,8 +89,26 @@ Hace esto por defecto:
 - intenta actualizarse cuando se lo piden
 - mantiene una sola voz simple para la persona final
 
+### skill-maintainer
+
+Es la skill mantenedora.
+
+Hace esto:
+
+- revisa el indice del catalogo
+- detecta si falta una skill
+- instala, actualiza o prepara la skill correcta
+- deja fallback si no se puede traer
+
 ## Skill de apoyo
 
 ### respuesta-simple
 
 Sirve para reforzar la capa de explicacion clara y amable cuando el usuario final necesita todavia menos complejidad.
+
+## Dominios iniciales
+
+- `data-analysis`: analisis de datos y metricas
+- `report-generation`: informes y resumentes ejecutivos
+- `web-dashboard-builder`: dashboards web interactivos
+- `critical-info-auditor`: revision de informacion critica

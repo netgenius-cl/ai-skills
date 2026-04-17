@@ -1,0 +1,5 @@
+interface:
+  display_name: "Report Generation"
+  short_description: "Convierte hallazgos en informes claros"
+  default_prompt: "Usa $report-generation para convertir esto en un informe claro."
+

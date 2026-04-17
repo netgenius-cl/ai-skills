@@ -1,0 +1,5 @@
+interface:
+  display_name: "Web Dashboard Builder"
+  short_description: "Crea dashboards web interactivos"
+  default_prompt: "Usa $web-dashboard-builder para crear un dashboard web claro."
+

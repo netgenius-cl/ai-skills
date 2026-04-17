@@ -1,0 +1,5 @@
+interface:
+  display_name: "Skill Maintainer"
+  short_description: "Instala y prepara skills bajo demanda"
+  default_prompt: "Usa $skill-maintainer para asegurar la skill correcta para esta tarea."
+

@@ -1,0 +1,73 @@
+version: 1
+default_entry_skill: netgenius
+maintainer_skill: skill-maintainer
+
+skills:
+  - name: netgenius
+    domain: orchestration
+    role: entrypoint
+    summary: "Orquestador principal con modo simple por defecto."
+    use_when:
+      - "el usuario no sabe que skill necesita"
+      - "hay que coordinar varias capacidades"
+      - "hace falta una capa simple para usuario final"
+    optional_dependencies:
+      - skill-maintainer
+      - respuesta-simple
+
+  - name: skill-maintainer
+    domain: maintenance
+    role: maintainer
+    summary: "Asegura, instala, actualiza o prepara skills y recipes del catalogo."
+    use_when:
+      - "falta una skill para resolver una tarea"
+      - "hay que actualizar o sincronizar una skill"
+      - "hay que preparar el entorno para otra skill"
+
+  - name: respuesta-simple
+    domain: communication
+    role: support
+    summary: "Capa de explicacion ultra simple para usuario final."
+    use_when:
+      - "el usuario final no es tecnico"
+      - "hay que resumir trabajo tecnico"
+
+  - name: data-analysis
+    domain: analytics
+    role: worker
+    summary: "Analisis de datos, metricas, tendencias, anomalias y preguntas de negocio."
+    use_when:
+      - "hay datasets o metricas"
+      - "hay que explicar numeros o detectar anomalias"
+
+  - name: report-generation
+    domain: reporting
+    role: worker
+    summary: "Convierte hallazgos en informes claros, ejecutivos o operativos."
+    use_when:
+      - "hay que producir un informe"
+      - "hay que convertir analisis en narrativa accionable"
+    optional_dependencies:
+      - data-analysis
+
+  - name: web-dashboard-builder
+    domain: dashboards
+    role: worker
+    summary: "Construye dashboards web interactivos y claros."
+    use_when:
+      - "hay que crear dashboards o paneles web"
+      - "hay que visualizar metricas y filtros"
+    optional_dependencies:
+      - data-analysis
+
+  - name: critical-info-auditor
+    domain: assurance
+    role: worker
+    summary: "Audita informacion critica, cifras sensibles y decisiones de alto riesgo."
+    use_when:
+      - "hay datos sensibles o decisiones importantes"
+      - "hay que revisar consistencia o trazabilidad"
+    optional_dependencies:
+      - data-analysis
+      - report-generation
+

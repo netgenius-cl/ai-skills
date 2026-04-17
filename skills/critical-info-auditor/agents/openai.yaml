@@ -1,0 +1,5 @@
+interface:
+  display_name: "Critical Info Auditor"
+  short_description: "Audita informacion de alto riesgo"
+  default_prompt: "Usa $critical-info-auditor para revisar esta informacion critica."
+

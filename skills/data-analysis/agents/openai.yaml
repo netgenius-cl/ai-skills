@@ -1,0 +1,5 @@
+interface:
+  display_name: "Data Analysis"
+  short_description: "Analiza datos, metricas y anomalías"
+  default_prompt: "Usa $data-analysis para analizar estos datos y resumir el hallazgo."
+
