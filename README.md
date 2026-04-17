@@ -6,17 +6,9 @@ Catalogo de Netgenius para varios entornos de agentes.
 
 `Lee https://github.com/netgenius-cl/ai-skills`
 
-## Prompt recomendado
+## Prompt para agentes
 
-```text
-Usa el README de https://github.com/netgenius-cl/ai-skills para configurar este entorno con `netgenius`.
-
-Usa modo simple por defecto.
-
-Cuando termines, responde solo en simple:
-"Listo, tu agente ya quedo configurado para responder facil y claro."
-Y si falta algo, dilo en una sola frase simple.
-```
+`Lee https://raw.githubusercontent.com/netgenius-cl/ai-skills/main/SETUP.md y configura este entorno.`
 
 ## Regla critica
 
@@ -35,6 +27,20 @@ Respuesta ideal:
 Si falta algo:
 
 `Casi listo. Solo falta _____.`
+
+## Instrucciones obligatorias para el agente que lee este README
+
+Si un agente recibe una instruccion como "lee este README y configura este entorno", debe hacer esto:
+
+- detectar primero el entorno correcto
+- configurar solo lo minimo necesario para ese entorno
+- no clonar ni descargar este repositorio con `git` salvo que la persona lo pida
+- no crear copias locales del catalogo por defecto
+- si necesita leer un archivo, leer solo el archivo necesario
+- si ejecuta comandos, resumir el resultado en una frase muy corta
+- al terminar, responder como usuario final y no como tecnico
+- si ya quedo listo, responder solo: `Listo, ya quedo configurado para responder facil y claro.`
+- si falta algo, responder solo: `Casi listo. Solo falta _____.`
 
 ## Regla principal
 
@@ -63,14 +69,6 @@ Usar la version de `netgenius` para `CLAUDE.md` y opcionalmente hooks desde [env
 ### Cursor
 
 Usar la version de `netgenius` para `AGENTS.md`, Project Rules y opcionalmente background agents desde [environments/cursor/](./environments/cursor/README.md).
-
-## Regla de cierre
-
-Despues de aplicar la configuracion, el agente debe confirmarlo en lenguaje simple.
-
-Frase recomendada:
-
-`Listo, ya quedo configurado para responder facil y claro.`
 
 ## Skill principal
 

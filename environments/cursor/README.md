@@ -10,6 +10,17 @@ Su forma nativa de persistir instrucciones es:
 - `.cursor/rules`
 - `environment.json` para background agents
 
+## Como configurar este entorno
+
+- no clonar este repositorio
+- no crear carpetas tipo `.netgenius` por defecto
+- crear solo los archivos nativos de Cursor que hagan falta
+- preferir `AGENTS.md` y `.cursor/rules`
+- usar `environment.json` solo si realmente se necesita
+- si ejecutas comandos, resumir el resultado en una frase muy corta
+- cuando termines, responder solo: `Listo, ya quedo configurado para responder facil y claro.`
+- si falta algo, responder solo: `Casi listo. Solo falta _____.`
+
 ## Que aplicar
 
 - usar [AGENTS.md](./AGENTS.md) para una version simple
@@ -21,19 +32,3 @@ Su forma nativa de persistir instrucciones es:
 - `netgenius` es la capa principal
 - modo simple es el default
 - `respuesta-simple` es apoyo conceptual, no otra instalacion separada
-
-## Prompt sugerido
-
-```text
-Usa el README de https://github.com/netgenius-cl/ai-skills para configurar este entorno Cursor con `netgenius`.
-
-Usa modo simple por defecto.
-
-Cuando termines, responde solo:
-"Listo, ya quedo configurado para responder facil y claro."
-Si falta algo, dilo en una sola frase simple.
-```
-
-## Confirmacion esperada
-
-`Listo, ya quedo configurado para responder facil y claro.`

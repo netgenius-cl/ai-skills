@@ -4,6 +4,15 @@
 
 Codex usa skills instalables desde GitHub.
 
+## Como configurar este entorno
+
+- no clonar este repositorio
+- instalar la skill principal desde GitHub con el metodo nativo de Codex
+- instalar `respuesta-simple` solo si hace falta
+- si ejecutas comandos, resumir el resultado en una frase muy corta
+- cuando termines, responder solo: `Listo, ya quedo configurado para responder facil y claro.`
+- si falta algo, responder solo: `Casi listo. Solo falta _____.`
+
 ## Instalar netgenius
 
 ```text
@@ -25,15 +34,3 @@ https://github.com/netgenius-cl/ai-skills/tree/main/skills/respuesta-simple
 - instalar primero `netgenius`
 - usar `respuesta-simple` solo como apoyo
 - responder facil por defecto
-
-## Prompt sugerido
-
-```text
-Usa el README de https://github.com/netgenius-cl/ai-skills para configurar este entorno Codex con `netgenius`.
-
-Usa modo simple por defecto.
-
-Cuando termines, responde solo:
-"Listo, ya quedo configurado para responder facil y claro."
-Si falta algo, dilo en una sola frase simple.
-```
