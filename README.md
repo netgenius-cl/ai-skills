@@ -2,14 +2,50 @@
 
 Catalogo publico de skills para Codex hecho por Netgenius.
 
-## Instalar una skill en Codex
+## Empieza por aqui
 
-1. Abre Codex.
-2. Copia el bloque de instalacion de la skill que quieras.
-3. Pegalo en Codex.
-4. Cuando termine, reinicia Codex si la skill no aparece de inmediato.
+Si no sabes cual skill elegir, instala la principal:
 
-## Catalogo
+```text
+Usa $skill-installer e instala:
+https://github.com/netgenius-cl/ai-skills/tree/main/skills/agente-netgenius
+```
+
+Luego, si no aparece de inmediato, reinicia Codex.
+
+## Como usar este catalogo
+
+1. Abre este repositorio.
+2. Elige una skill.
+3. Copia su bloque de instalacion.
+4. Pegalo en Codex.
+
+## Skill principal
+
+### Agente Netgenius
+
+Es la puerta de entrada del catalogo. Habla simple, coordina especialistas detras de escena y puede ayudarte a crear nuevas skills una por una.
+
+Instalar:
+
+```text
+Usa $skill-installer e instala:
+https://github.com/netgenius-cl/ai-skills/tree/main/skills/agente-netgenius
+```
+
+Usar:
+
+```text
+Usa $agente-netgenius para ayudarme sin tecnicismos y coordinar lo necesario.
+```
+
+Para crear skills:
+
+```text
+Usa $agente-netgenius para crear una nueva skill paso a paso y dejarla lista para publicar.
+```
+
+## Skills de apoyo
 
 ### Respuesta Simple
 
