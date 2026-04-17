@@ -1,85 +1,54 @@
 # ai-skills
 
-Catalogo publico de skills para Codex hecho por Netgenius.
+Catalogo de Netgenius para varios entornos de agentes.
 
-## Empieza por aqui
+## Prompt minimo
 
-Si no sabes cual skill elegir, instala esta:
+`Lee https://github.com/netgenius-cl/ai-skills/blob/main/README.md`
 
-```text
-Usa $skill-installer e instala:
-https://github.com/netgenius-cl/ai-skills/tree/main/skills/netgenius
-```
+## Regla principal
 
-Luego, si no aparece de inmediato, reinicia Codex.
+- empezar por `netgenius`
+- usar modo simple por defecto
+- asumir que la persona no es tecnica
+- usar `respuesta-simple` como apoyo si existe
 
-## Como usar este catalogo
+## Estructura
 
-1. Abre este repositorio.
-2. Elige una skill.
-3. Copia su bloque de instalacion.
-4. Pegalo en Codex.
+- [skills/](./skills/): skills nativas de Codex
+- [environments/codex/](./environments/codex/README.md): guia para Codex
+- [environments/claude-code/](./environments/claude-code/README.md): memoria y hooks para Claude Code
+- [environments/cursor/](./environments/cursor/README.md): rules, AGENTS.md y background agents para Cursor
+
+## Que hacer segun el entorno
+
+### Codex
+
+Usar la skill `netgenius` desde [skills/netgenius/](./skills/netgenius/SKILL.md).
+
+### Claude Code
+
+Usar la version de `netgenius` para `CLAUDE.md` y opcionalmente hooks desde [environments/claude-code/](./environments/claude-code/README.md).
+
+### Cursor
+
+Usar la version de `netgenius` para `AGENTS.md`, Project Rules y opcionalmente background agents desde [environments/cursor/](./environments/cursor/README.md).
 
 ## Skill principal
 
-### Agente Netgenius
+### netgenius
 
-Es la puerta de entrada del catalogo. Habla simple, coordina especialistas detras de escena, puede ayudarte a crear nuevas skills una por una e intenta actualizarse cuando se lo pides.
+Es el orquestador principal del catalogo.
 
-Instalar:
+Hace esto por defecto:
 
-```text
-Usa $skill-installer e instala:
-https://github.com/netgenius-cl/ai-skills/tree/main/skills/netgenius
-```
+- responde facil
+- coordina otras capacidades
+- intenta actualizarse cuando se lo piden
+- mantiene una sola voz simple para la persona final
 
-Usar:
+## Skill de apoyo
 
-```text
-Usa $netgenius para ayudarme sin tecnicismos y coordinar lo necesario.
-```
+### respuesta-simple
 
-Para crear skills:
-
-```text
-Usa $netgenius para crear una nueva skill paso a paso y dejarla lista para publicar.
-```
-
-Para probarla rapido:
-
-```text
-Usa $netgenius para actuar como un asistente virtual muy inteligente, claro y sin tecnicismos.
-```
-
-Para pedirle que se actualice:
-
-```text
-Usa $netgenius para intentar actualizar esta skill desde su fuente principal y explicarme el resultado simple.
-```
-
-## Skills de apoyo
-
-### Respuesta Simple
-
-Habla claro, amable y sin tecnicismos para usuarios no tecnicos. Sirve como capa de simplificacion para explicar, pedir datos y resumir trabajo complejo de forma facil de entender.
-
-Instalar:
-
-```text
-Usa $skill-installer e instala:
-https://github.com/netgenius-cl/ai-skills/tree/main/skills/respuesta-simple
-```
-
-Usar:
-
-```text
-Usa $respuesta-simple para responderle a esta persona de la forma mas simple posible.
-```
-
-## Publicar nuevas skills
-
-Cada skill vive dentro de `skills/<nombre-skill>/` y debe incluir al menos un archivo `SKILL.md`.
-
-## Compatibilidad
-
-La skill principal esta escrita para funcionar de forma portable: si el agente tiene funciones avanzadas las aprovecha, y si no las tiene sigue ayudando en modo simple. La idea es que sirva bien en Codex, Claude Code y entornos parecidos sin depender por completo de una sola plataforma.
+Sirve para reforzar la capa de explicacion clara y amable cuando el usuario final necesita todavia menos complejidad.

@@ -1,0 +1,9 @@
+{
+  "install": "echo Prepare Cursor background agent environment if needed",
+  "terminals": [
+    {
+      "name": "Netgenius Reminder",
+      "command": "echo Keep replies simple by default"
+    }
+  ]
+}

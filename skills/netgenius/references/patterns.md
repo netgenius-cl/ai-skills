@@ -2,16 +2,43 @@
 
 ## Instalacion principal
 
+Prompt minimo:
+
+`Lee este README: https://github.com/netgenius-cl/ai-skills`
+
+## Traduccion por entorno
+
+### Codex
+
+Codex usa skills de GitHub con `$skill-installer`.
+
 ```text
 Usa $skill-installer e instala:
 https://github.com/netgenius-cl/ai-skills/tree/main/skills/netgenius
 ```
 
-Si el agente no usa `$skill-installer`, adaptar la frase manteniendo la misma idea:
+### Claude Code
+
+Claude Code usa memoria en `CLAUDE.md`.
 
 ```text
-Instala la skill principal desde:
-https://github.com/netgenius-cl/ai-skills/tree/main/skills/netgenius
+Lee este README:
+https://github.com/netgenius-cl/ai-skills
+
+Aplica `netgenius` en este entorno usando `CLAUDE.md`.
+Usa modo simple por defecto.
+```
+
+### Cursor
+
+Cursor usa `AGENTS.md` o reglas.
+
+```text
+Lee este README:
+https://github.com/netgenius-cl/ai-skills
+
+Aplica `netgenius` en este entorno usando `AGENTS.md` o una regla de Cursor.
+Usa modo simple por defecto.
 ```
 
 ## Respuesta ideal
