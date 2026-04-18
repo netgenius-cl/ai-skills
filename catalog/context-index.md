@@ -48,6 +48,7 @@ Sirve para orientarse rapido y abrir solo el archivo minimo necesario.
 - Drive o carpeta sincronizada: ir a `google-drive`
 - crear, modificar o respaldar workflow en n8n: ir a `n8n-workflow-builder`
 - n8n o Eloqiant + n8n: ir a `eloqiant-n8n`
+- si dicen `n8n` sin otra URL: asumir `https://n8n.eloqiant.com`
 - automatizacion, workflow, Make, Zapier o webhook: ir a `automation-builder`
 - navegador, URL, login o formulario: ir a `browser`
 - redes sociales, Instagram, LinkedIn, TikTok, caption o community manager: ir a `community-manager`

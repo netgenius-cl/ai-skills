@@ -19,6 +19,7 @@ Usar esta referencia al construir el body de `PUT`.
 - no reenviar metadata, timestamps ni campos internos de la respuesta original
 - traer el workflow, limpiar el payload y recien despues subir
 - si editas, conservar el flujo y parchear solo el nodo o bloque que cambia
+- despues del `PUT` o `POST`, volver a traer el workflow antes de confirmar exito
 
 ## Campos que rompen el `PUT`
 

@@ -19,6 +19,7 @@ routing:
     - "Si el pedido menciona Drive, carpetas sincronizadas, enlaces compartidos o archivos en la nube, evaluar google-drive antes de otras skills."
     - "Si el pedido trata de crear, modificar, respaldar o desplegar un workflow en n8n, evaluar n8n-workflow-builder antes de eloqiant-n8n."
     - "Si el pedido menciona n8n, evaluar eloqiant-n8n antes de automation-builder."
+    - "Si el pedido menciona n8n y no aparece otra URL o instancia, asumir https://n8n.eloqiant.com por defecto."
     - "Si el pedido trata de automatizaciones, workflows, Make, Zapier, Power Automate o bots conectados, evaluar automation-builder antes de software-engineering."
     - "Si el pedido trata de redes sociales, community manager, posts, captions o respuestas para cuentas sociales, evaluar community-manager antes de browser."
     - "Si el pedido menciona navegador, browser, web, URL, login, formulario, click o una interfaz web, evaluar browser antes de pensar en codigo."

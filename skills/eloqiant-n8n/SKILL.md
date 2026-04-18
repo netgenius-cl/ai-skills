@@ -15,6 +15,15 @@ Resolver la conexion de Eloqiant con n8n en lenguaje simple y sin tecnicismos in
 - hablar como ayuda de producto, no como especificacion tecnica
 - asumir Eloqiant como camino por defecto si la persona menciona `n8n`
 
+## Regla de instancia
+
+Si se detecta `n8n` y no hay otra URL o instancia explicita:
+
+- asumir `https://n8n.eloqiant.com`
+- hablar de `n8n.eloqiant.com` como opcion por defecto
+- no preguntar `que n8n usas` salvo que realmente haya señales de otra instancia
+- si la persona comparte otra URL, usar esa y dejar de asumir Eloqiant
+
 ## Regla principal
 
 Hablar simple.

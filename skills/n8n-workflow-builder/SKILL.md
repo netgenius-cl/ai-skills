@@ -14,6 +14,14 @@ Resolver workflows de n8n via API con estructura clara, sin secretos hardcodeado
 - URL: `https://n8n.eloqiant.com`
 - auth header: `X-N8N-API-KEY: {token}`
 
+## Regla de instancia
+
+Si se detecta `n8n` y la persona no indica otra instancia:
+
+- usar `https://n8n.eloqiant.com` por defecto
+- asumir Eloqiant como camino base
+- solo cambiar de instancia si la persona da otra URL o dice claramente que usa otro n8n
+
 ## Token
 
 - no hardcodear tokens en la skill
@@ -33,6 +41,7 @@ Subdirectorios:
 
 - `workflows/` para versiones listas
 - `backups/` para respaldos
+- `docs/` para notas simples de trabajo
 - `tmp/` para archivos temporales
 
 ## Nombres
@@ -45,14 +54,87 @@ Ejemplos:
 - `cotizaciones-whatsapp-n8n`
 - `seguimiento-clientes-n8n`
 
+## Aterrizar el flujo
+
+Ayudar tambien con el concepto de flujo, no solo con el JSON.
+
+Explicarlo simple:
+
+- `disparador`: que inicia el flujo
+- `pasos`: que hace en el medio
+- `salida`: que devuelve, crea o responde
+
+Si la persona esta perdida, bajar primero el flujo a estas tres partes antes de hablar de nodos.
+
+## Cuando el pedido es muy general
+
+Si dicen algo muy amplio como `quiero un agente` o `quiero automatizar algo`:
+
+- hacer una sola pregunta corta: `Cual? tienes uno en mente?`
+- no inventar el caso de uso
+- no bajar a nodos o APIs antes de aterrizar el objetivo
+
+## Lista de lo que hace falta
+
+Cuando todavia faltan datos, dar una lista simple de lo necesario.
+
+Lista base:
+
+- objetivo
+- disparador
+- apps o servicios
+- datos que entran
+- respuesta o salida esperada
+- credenciales o cuentas
+- condiciones o validaciones
+- que hacer si algo falla
+
 ## Flujo obligatorio
 
 1. hacer `GET /api/v1/workflows/:id` si es modificacion
-2. construir o ajustar JSON en `tmp/`
-3. verificar credenciales con el check antes del envio
-4. hacer `PUT /api/v1/workflows/:id` o `POST /api/v1/workflows`
-5. volver a traer el workflow y validar que quedo bien
-6. borrar los temporales
+2. si el workflow es grande o tiene muchos nodos, escribir primero un documento simple en `docs/` para ir revisando
+3. construir o ajustar JSON en `tmp/`
+4. verificar credenciales con el check antes del envio
+5. hacer `PUT /api/v1/workflows/:id` o `POST /api/v1/workflows`
+6. volver a traer el workflow y validar que quedo bien
+7. si quedo bien, construir y compartir el enlace correcto del workflow
+8. borrar los temporales
+
+## Enlace del workflow
+
+Si el workflow se crea o actualiza bien:
+
+- usar el `id` real devuelto o confirmado por el refetch
+- compartir el enlace directo: `https://n8n.eloqiant.com/workflow/<id>`
+- no decir que esta listo antes de confirmar la carga con un `GET` final
+- si el refetch falla, no prometer que quedo bien
+
+## Documento simple para workflows grandes
+
+Si el workflow es grande, largo o facil de perder:
+
+- decir en simple: `Escribire un documento para ir revisando.`
+- crear una nota corta en `docs/<nombre-simple>.md`
+- usar esa nota como guia de trabajo mientras se arma o corrige el flujo
+- mantenerla breve, clara y facil de seguir
+
+Usar esta estructura simple:
+
+```md
+# <nombre-simple>
+
+## Objetivo
+
+## Disparador
+
+## Pasos principales
+
+## Nodos pendientes
+
+## Credenciales a revisar
+
+## Check final
+```
 
 ## Reglas de credenciales
 
@@ -161,6 +243,22 @@ curl -s -X POST "https://n8n.eloqiant.com/api/v1/workflows/{id}/deactivate" \
 ### Backup
 
 Guardar respaldos dentro de `backups/<nombre-simple>/`.
+
+## Backups rigurosos
+
+Si se va a modificar un workflow existente:
+
+- hacer backup antes de tocar nada
+- guardar el original completo antes del cambio
+- guardar una copia final despues del cambio si quedo bien
+- usar nombres con fecha y hora para no sobrescribir
+
+Formato sugerido:
+
+- `backups/<nombre-simple>/<nombre-simple>-before-YYYYMMDD-HHMMSS.json`
+- `backups/<nombre-simple>/<nombre-simple>-after-YYYYMMDD-HHMMSS.json`
+
+Nunca reemplazar el unico backup anterior.
 
 ## Limpieza
 

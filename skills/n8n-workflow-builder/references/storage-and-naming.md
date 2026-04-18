@@ -13,6 +13,7 @@ Subdirectorios:
 
 - `workflows/`
 - `backups/`
+- `docs/`
 - `tmp/`
 
 ## Nombres
@@ -28,5 +29,20 @@ Ejemplos:
 ## Regla
 
 - un workflow por carpeta descriptiva si hace falta versionarlo
+- si el workflow es grande, crear una nota corta en `docs/<nombre-simple>.md`
+- esa nota debe servir para revisar el flujo paso a paso sin perderse
+- compartir el enlace del workflow solo despues de confirmar el `id` y la carga final
 - temporales siempre en `tmp/`
 - respaldos siempre en `backups/`
+
+## Backups
+
+- usar `backups/<nombre-simple>/`
+- guardar backup antes del cambio
+- guardar backup final despues del cambio
+- usar fecha y hora en el nombre
+
+Ejemplos:
+
+- `backups/cotizaciones-whatsapp-n8n/cotizaciones-whatsapp-n8n-before-20260418-153000.json`
+- `backups/cotizaciones-whatsapp-n8n/cotizaciones-whatsapp-n8n-after-20260418-154200.json`
