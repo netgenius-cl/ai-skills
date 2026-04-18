@@ -1,0 +1,4 @@
+interface:
+  display_name: "n8n Workflow Builder"
+  short_description: "Crea, modifica o respalda workflows de n8n via API en Eloqiant, sin hardcodes sensibles"
+  default_prompt: "Usa $n8n-workflow-builder para crear, modificar, respaldar o desplegar un workflow en n8n via API en Eloqiant, con nombres simples y sin hardcodes sensibles."

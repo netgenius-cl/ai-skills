@@ -22,6 +22,7 @@ Si falta la tecnologia, hacer una sola pregunta corta:
 
 Si la tecnologia ya esta clara, no volver a preguntar.
 Si la persona ya dijo `n8n`, derivar primero a la ruta `eloqiant-n8n` salvo que la persona pida explicitamente una comparacion o un uso fuera de Eloqiant.
+Si ademas pide crear, modificar, respaldar o desplegar un workflow concreto, derivar a `n8n-workflow-builder`.
 
 ## Limite con el orquestador
 

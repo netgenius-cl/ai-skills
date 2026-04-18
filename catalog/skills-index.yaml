@@ -17,6 +17,7 @@ routing:
     - "Si el usuario no sabe que skill usar, empezar por netgenius."
     - "Si falta una skill, una plantilla o una traduccion al entorno, llamar a skill-maintainer."
     - "Si el pedido menciona Drive, carpetas sincronizadas, enlaces compartidos o archivos en la nube, evaluar google-drive antes de otras skills."
+    - "Si el pedido trata de crear, modificar, respaldar o desplegar un workflow en n8n, evaluar n8n-workflow-builder antes de eloqiant-n8n."
     - "Si el pedido menciona n8n, evaluar eloqiant-n8n antes de automation-builder."
     - "Si el pedido trata de automatizaciones, workflows, Make, Zapier, Power Automate o bots conectados, evaluar automation-builder antes de software-engineering."
     - "Si el pedido trata de redes sociales, community manager, posts, captions o respuestas para cuentas sociales, evaluar community-manager antes de browser."
@@ -41,6 +42,24 @@ routing:
         - actualiza skill
         - falta una skill
         - mantenedor
+    - name: n8n_workflow_building
+      routes_to: n8n-workflow-builder
+      keywords:
+        - crea un workflow en n8n
+        - crear workflow en n8n
+        - modifica el workflow
+        - modifica workflow en n8n
+        - respalda el workflow
+        - respaldo del workflow
+        - deploy workflow n8n
+        - despliega workflow n8n
+        - hazlo en n8n
+        - genera el flujo
+        - workflow json n8n
+        - backup workflow n8n
+      optional_support:
+        - eloqiant-n8n
+        - automation-builder
     - name: eloqiant_n8n_work
       routes_to: eloqiant-n8n
       keywords:
@@ -264,6 +283,22 @@ skills:
       - "modo de acceso confirmado"
       - "lista corta de archivos relevantes"
 
+  - name: n8n-workflow-builder
+    domain: automation
+    role: worker
+    summary: "Crea, modifica, respalda y despliega workflows de n8n via API sin hardcodes sensibles."
+    aliases:
+      - n8n workflow
+      - workflow builder n8n
+      - genera flujo n8n
+    use_when:
+      - "hay que crear o modificar un workflow concreto en n8n"
+      - "hay que respaldar, desplegar o exportar un workflow de n8n"
+      - "hay que construir el JSON de un workflow y subirlo por API"
+    optional_dependencies:
+      - eloqiant-n8n
+      - automation-builder
+
   - name: eloqiant-n8n
     domain: automation
     role: worker
@@ -277,6 +312,7 @@ skills:
       - "hay que explicar como usar workflows de n8n desde Eloqiant"
       - "hay que guiar al usuario con API key, credentials y bloqueos comunes de n8n"
     optional_dependencies:
+      - n8n-workflow-builder
       - automation-builder
       - respuesta-simple
 
@@ -293,6 +329,7 @@ skills:
       - "hay que elegir entre n8n, Make, Zapier, Power Automate o codigo"
       - "hay que conectar apps, triggers, webhooks o pasos automaticos"
     optional_dependencies:
+      - n8n-workflow-builder
       - software-engineering
       - critical-info-auditor
 

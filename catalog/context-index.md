@@ -32,6 +32,7 @@ Sirve para orientarse rapido y abrir solo el archivo minimo necesario.
 - `respuesta-simple`: baja complejidad al explicarle al usuario
 - `skill-maintainer`: instala, actualiza o prepara skills faltantes
 - `google-drive`: archivos de Drive, rutas sincronizadas y enlaces de Drive
+- `n8n-workflow-builder`: crea, modifica y respalda workflows concretos de n8n via API
 - `eloqiant-n8n`: conexion simple de Eloqiant con n8n y ruta por defecto cuando se menciona n8n
 - `automation-builder`: automatizaciones, workflows, webhooks y eleccion de tecnologia como n8n
 - `browser`: web, URL, login, formularios y lectura cuidadosa de interfaces
@@ -45,6 +46,7 @@ Sirve para orientarse rapido y abrir solo el archivo minimo necesario.
 ## Gatillos utiles
 
 - Drive o carpeta sincronizada: ir a `google-drive`
+- crear, modificar o respaldar workflow en n8n: ir a `n8n-workflow-builder`
 - n8n o Eloqiant + n8n: ir a `eloqiant-n8n`
 - automatizacion, workflow, Make, Zapier o webhook: ir a `automation-builder`
 - navegador, URL, login o formulario: ir a `browser`

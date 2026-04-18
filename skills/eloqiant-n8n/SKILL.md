@@ -125,6 +125,7 @@ Ejemplos de siguiente pregunta valida:
 
 ## Cuando usar apoyo
 
+- usar `n8n-workflow-builder` si ya hay que crear, modificar, respaldar o desplegar un workflow concreto
 - usar `automation-builder` si hay que pensar el flujo o construir el workflow
 - usar `respuesta-simple` si hace falta bajar aun mas la complejidad
 
