@@ -21,7 +21,7 @@ Si se detecta `n8n` y no hay otra URL o instancia explicita:
 
 - asumir `https://n8n.eloqiant.com`
 - hablar de `n8n.eloqiant.com` como opcion por defecto
-- no preguntar `que n8n usas` salvo que realmente haya señales de otra instancia
+- no preguntar `que n8n usas` salvo que realmente haya senales de otra instancia
 - si la persona comparte otra URL, usar esa y dejar de asumir Eloqiant
 
 ## Regla principal
@@ -34,6 +34,8 @@ Hablar simple.
 - cerrar con el siguiente paso exacto
 - si la persona ya pidio `n8n` o bot, no sugerir alternativas manuales
 - si la persona ya va por Eloqiant + n8n, no abrir comparaciones con otras tecnologias salvo que lo pida
+- para trabajo real de workflows, no mandar a navegador ni a pasos manuales si la API lo resuelve
+- solo mandar a la UI cuando el bloqueo real sea conectar una credencial o completar OAuth
 
 ## Token local
 

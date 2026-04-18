@@ -66,6 +66,27 @@ Explicarlo simple:
 
 Si la persona esta perdida, bajar primero el flujo a estas tres partes antes de hablar de nodos.
 
+## Alcance y disciplina
+
+Cuando esta skill toma un caso de `n8n`, es la ruta principal.
+
+- priorizar esta skill por sobre caminos manuales o tangenciales
+- no salir del alcance hacia otras herramientas si el trabajo real es `n8n`
+- no intentar abrir navegador para hacer el workflow manualmente
+- no desviar a una solucion manual salvo que el bloqueo real sea conectar una credencial en la UI
+- para crear, leer, modificar, activar, desactivar o respaldar workflows, usar API y archivos locales
+- leer primero el workflow actual y sus cambios antes de tocarlo
+
+## Herramientas correctas
+
+Para trabajo de workflows en `n8n`:
+
+- usar API de `n8n.eloqiant.com`
+- usar archivos temporales y respaldos locales
+- usar notas en `docs/` para workflows grandes
+- no usar `browser` para construir o editar workflows
+- no pedir pasos manuales si la API resuelve el trabajo
+
 ## Cuando el pedido es muy general
 
 Si dicen algo muy amplio como `quiero un agente` o `quiero automatizar algo`:
@@ -92,13 +113,16 @@ Lista base:
 ## Flujo obligatorio
 
 1. hacer `GET /api/v1/workflows/:id` si es modificacion
-2. si el workflow es grande o tiene muchos nodos, escribir primero un documento simple en `docs/` para ir revisando
-3. construir o ajustar JSON en `tmp/`
-4. verificar credenciales con el check antes del envio
-5. hacer `PUT /api/v1/workflows/:id` o `POST /api/v1/workflows`
-6. volver a traer el workflow y validar que quedo bien
-7. si quedo bien, construir y compartir el enlace correcto del workflow
-8. borrar los temporales
+2. leer bien el workflow actual antes de cambiarlo
+3. si es modificacion, crear backup obligatorio antes de subir cualquier cambio
+4. si el workflow es grande o tiene muchos nodos, escribir primero un documento simple en `docs/` para ir revisando
+5. construir o ajustar JSON en `tmp/`
+6. agregar comentarios o notas utiles dentro del flujo si ayuda a entenderlo
+7. verificar credenciales con el check antes del envio
+8. hacer `PUT /api/v1/workflows/:id` o `POST /api/v1/workflows`
+9. volver a traer el workflow y validar que quedo bien
+10. si quedo bien, construir y compartir el enlace correcto del workflow
+11. borrar los temporales
 
 ## Enlace del workflow
 
@@ -150,6 +174,15 @@ Para nodos tipo Gmail o Google:
 - no agregar `authentication` ni `genericAuthType` en `parameters`
 - no mezclar con `httpHeaderAuth`
 
+### Google Sheets
+
+Para nodos `googleSheets`:
+
+- usar `googleSheetsOAuth2Api`
+- no usar `googleOAuth2Api` en nodos de Sheets
+- si `documentId` o `sheetName` quedan vacios, el nodo queda invalido
+- si falta el dato real, dejarlo claro en el nombre del nodo con un `TODO`
+
 ### HTTP Header Auth
 
 Para nodos `HTTP Request` con auth por header:
@@ -169,6 +202,41 @@ Para nodos `HTTP Request` con auth por header:
 - al editar, parchear un nodo a la vez
 - no usar un `map` generico sobre todos los nodos si solo cambia uno
 
+## Comentarios y notas en el flujo
+
+Cuando el flujo sea mediano o grande:
+
+- usar nombres de nodo claros y descriptivos
+- agregar notas para separar bloques o explicar logica delicada
+- preferir `n8n-nodes-base.stickyNote` para comentarios visibles dentro del workflow
+- usar notas cortas y utiles, no decorativas
+- dejar claro donde empieza el trigger, donde vive la logica y donde sale el resultado
+
+Ejemplos de notas utiles:
+
+- `Entrada del flujo`
+- `Validacion antes de llamar al API`
+- `IA genera la respuesta`
+- `Salida al usuario`
+
+## AI y scraping
+
+Usar ejemplos base reales para crear nodos AI o de scraping.
+
+Para detalles, ver [references/ai-and-scraping.md](references/ai-and-scraping.md).
+
+## Diseno de prompts para agentes IA
+
+Antes de escribir un prompt para `chainLlm` o `agent`:
+
+- preguntar si los datos son reales o de ejemplo
+- preguntar el tono y la estructura esperada
+- preguntar que no debe hacer el agente
+
+No asumir esto por cuenta propia si cambia la calidad de la respuesta.
+
+Para la guia exacta y una plantilla de cotizador, ver [references/prompt-design.md](references/prompt-design.md).
+
 ## Check antes de subir
 
 Siempre correr un check local del JSON antes de `PUT` o `POST`.
@@ -181,7 +249,7 @@ Patron minimo:
 d.nodes.forEach(node => {
   const credKeys = Object.keys(node.credentials || {});
   if (credKeys.length > 1) throw new Error(`${node.id} tiene ${credKeys} y solo una credential es valida`);
-  console.log(node.id, node.type, '|', node.parameters?.authentication ?? '—', '|', credKeys);
+  console.log(node.id, node.type, '|', node.parameters?.authentication ?? '-', '|', credKeys);
 });
 ```
 
@@ -203,6 +271,8 @@ Usar solo:
 
 No enviar campos de estado, metadata o timestamps de la respuesta original.
 
+Para la lista ampliada de campos que rompen el `PUT`, ver [references/payload-rules.md](references/payload-rules.md).
+
 ## Operaciones
 
 ### Crear
@@ -213,6 +283,8 @@ curl -s -X POST "https://n8n.eloqiant.com/api/v1/workflows" \
   -H "Content-Type: application/json" \
   -d @workflow.json
 ```
+
+Guardar el `id` de respuesta para futuras modificaciones.
 
 ### Modificar
 
@@ -252,6 +324,9 @@ Si se va a modificar un workflow existente:
 - guardar el original completo antes del cambio
 - guardar una copia final despues del cambio si quedo bien
 - usar nombres con fecha y hora para no sobrescribir
+- no subir cambios si el backup previo no existe
+- leer el original y el payload final antes del `PUT`
+- confirmar por refetch que el workflow guardado coincide con lo esperado
 
 Formato sugerido:
 
@@ -259,6 +334,14 @@ Formato sugerido:
 - `backups/<nombre-simple>/<nombre-simple>-after-YYYYMMDD-HHMMSS.json`
 
 Nunca reemplazar el unico backup anterior.
+
+## Errores comunes y checklist
+
+Para diagnostico y activacion segura, ver [references/diagnostics-and-checklist.md](references/diagnostics-and-checklist.md).
+
+## Ejemplo completo
+
+Si hace falta un caso base real y documentado nodo por nodo, usar [references/example-cotizador-email.md](references/example-cotizador-email.md).
 
 ## Limpieza
 
@@ -271,3 +354,7 @@ No dejar `wf.json`, `wf-put.json` o similares fuera de `tmp/`.
 - Ver [references/credential-rules.md](references/credential-rules.md) para reglas de credenciales y checks.
 - Ver [references/payload-rules.md](references/payload-rules.md) para campos permitidos en `PUT`.
 - Ver [references/storage-and-naming.md](references/storage-and-naming.md) para directorios y nombres simples.
+- Ver [references/ai-and-scraping.md](references/ai-and-scraping.md) para nodos AI, LangChain y scraping.
+- Ver [references/prompt-design.md](references/prompt-design.md) para prompts de agentes IA.
+- Ver [references/diagnostics-and-checklist.md](references/diagnostics-and-checklist.md) para diagnostico y checklist final.
+- Ver [references/example-cotizador-email.md](references/example-cotizador-email.md) para un workflow de referencia completo.

@@ -32,17 +32,21 @@ Ejemplos:
 - si el workflow es grande, crear una nota corta en `docs/<nombre-simple>.md`
 - esa nota debe servir para revisar el flujo paso a paso sin perderse
 - compartir el enlace del workflow solo despues de confirmar el `id` y la carga final
+- agregar notas o comentarios visibles dentro del flujo cuando sea complejo
 - temporales siempre en `tmp/`
 - respaldos siempre en `backups/`
 
 ## Backups
 
-- usar `backups/<nombre-simple>/`
+- si el repo ya usa `services/n8n/workflows/`, preferir esa ruta para backups del proyecto
+- si no existe esa carpeta, usar `backups/<nombre-simple>/`
 - guardar backup antes del cambio
 - guardar backup final despues del cambio
 - usar fecha y hora en el nombre
+- no sobrescribir el backup anterior
 
 Ejemplos:
 
+- `services/n8n/workflows/cotizaciones-whatsapp-n8n-20260418.json`
 - `backups/cotizaciones-whatsapp-n8n/cotizaciones-whatsapp-n8n-before-20260418-153000.json`
 - `backups/cotizaciones-whatsapp-n8n/cotizaciones-whatsapp-n8n-after-20260418-154200.json`
