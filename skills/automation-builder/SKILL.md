@@ -21,7 +21,7 @@ Si falta la tecnologia, hacer una sola pregunta corta:
 - "Que tecnologia quieres usar para esto: n8n, Make, Zapier, Power Automate o codigo?"
 
 Si la tecnologia ya esta clara, no volver a preguntar.
-Si la persona ya dijo `n8n`, no abrir comparacion con otras herramientas salvo que la persona la pida.
+Si la persona ya dijo `n8n`, derivar primero a la ruta `eloqiant-n8n` salvo que la persona pida explicitamente una comparacion o un uso fuera de Eloqiant.
 
 ## Limite con el orquestador
 

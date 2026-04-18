@@ -17,8 +17,8 @@ routing:
     - "Si el usuario no sabe que skill usar, empezar por netgenius."
     - "Si falta una skill, una plantilla o una traduccion al entorno, llamar a skill-maintainer."
     - "Si el pedido menciona Drive, carpetas sincronizadas, enlaces compartidos o archivos en la nube, evaluar google-drive antes de otras skills."
-    - "Si el pedido menciona Eloqiant y n8n juntos, evaluar eloqiant-n8n antes de automation-builder."
-    - "Si el pedido trata de automatizaciones, workflows, n8n, Make, Zapier o bots conectados, evaluar automation-builder antes de software-engineering."
+    - "Si el pedido menciona n8n, evaluar eloqiant-n8n antes de automation-builder."
+    - "Si el pedido trata de automatizaciones, workflows, Make, Zapier, Power Automate o bots conectados, evaluar automation-builder antes de software-engineering."
     - "Si el pedido trata de redes sociales, community manager, posts, captions o respuestas para cuentas sociales, evaluar community-manager antes de browser."
     - "Si el pedido menciona navegador, browser, web, URL, login, formulario, click o una interfaz web, evaluar browser antes de pensar en codigo."
     - "Si el pedido es de codigo pero el stack o alcance no estan claros, preguntar una sola cosa simple antes de enrutar."
@@ -44,6 +44,7 @@ routing:
     - name: eloqiant_n8n_work
       routes_to: eloqiant-n8n
       keywords:
+        - n8n
         - eloqiant
         - eloqiant n8n
         - n8n eloqiant
@@ -65,7 +66,6 @@ routing:
         - workflow
         - workflows
         - automatiza
-        - n8n
         - make
         - zapier
         - power automate

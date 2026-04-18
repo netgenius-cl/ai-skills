@@ -13,6 +13,7 @@ Resolver la conexion de Eloqiant con n8n en lenguaje simple y sin tecnicismos in
 - explicar el siguiente paso mas simple
 - dejar claro el bloqueo comun de las credenciales
 - hablar como ayuda de producto, no como especificacion tecnica
+- asumir Eloqiant como camino por defecto si la persona menciona `n8n`
 
 ## Regla principal
 

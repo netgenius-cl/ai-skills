@@ -32,7 +32,7 @@ Sirve para orientarse rapido y abrir solo el archivo minimo necesario.
 - `respuesta-simple`: baja complejidad al explicarle al usuario
 - `skill-maintainer`: instala, actualiza o prepara skills faltantes
 - `google-drive`: archivos de Drive, rutas sincronizadas y enlaces de Drive
-- `eloqiant-n8n`: conexion simple de Eloqiant con n8n y manejo claro de bloqueos de credenciales
+- `eloqiant-n8n`: conexion simple de Eloqiant con n8n y ruta por defecto cuando se menciona n8n
 - `automation-builder`: automatizaciones, workflows, webhooks y eleccion de tecnologia como n8n
 - `browser`: web, URL, login, formularios y lectura cuidadosa de interfaces
 - `community-manager`: redes sociales, posts, captions, replies, tono y emojis
@@ -45,8 +45,8 @@ Sirve para orientarse rapido y abrir solo el archivo minimo necesario.
 ## Gatillos utiles
 
 - Drive o carpeta sincronizada: ir a `google-drive`
-- Eloqiant + n8n: ir a `eloqiant-n8n`
-- automatizacion, workflow, n8n, Make, Zapier o webhook: ir a `automation-builder`
+- n8n o Eloqiant + n8n: ir a `eloqiant-n8n`
+- automatizacion, workflow, Make, Zapier o webhook: ir a `automation-builder`
 - navegador, URL, login o formulario: ir a `browser`
 - redes sociales, Instagram, LinkedIn, TikTok, caption o community manager: ir a `community-manager`
 - codigo, bug, API o script: ir a `software-engineering`

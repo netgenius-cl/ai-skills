@@ -189,6 +189,19 @@ Prioriza:
 Preferir siempre los archivos locales del repo cuando existan.
 Si no existen, usar las URLs equivalentes de este mismo repositorio para una instalacion simple en cualquier agente.
 
+## Fuente remota para actualizacion
+
+Cuando configures un entorno persistente, deja tambien visible la fuente remota del catalogo para futuras consultas o actualizaciones.
+
+Usar estas URLs:
+
+- repo: `https://github.com/netgenius-cl/ai-skills`
+- setup: `https://raw.githubusercontent.com/netgenius-cl/ai-skills/main/SETUP.md`
+- indice: `https://raw.githubusercontent.com/netgenius-cl/ai-skills/main/catalog/skills-index.yaml`
+
+Si el repo local ya existe, preferir lo local.
+Si falta contexto nuevo o piden actualizar, usar estas URLs como fallback explicito.
+
 ## Catalogo local persistente
 
 Si este repo ya existe en el entorno y la persona quiere persistencia real:

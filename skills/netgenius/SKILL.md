@@ -87,8 +87,8 @@ Solo salir de este modo si la persona pide mas detalle tecnico o demuestra clara
 - Consultar `../../catalog/model-guidance.md` cuando haya que recomendar modo o modelo.
 - Si falta una skill importante, usar `skill-maintainer` para asegurarla o preparar su equivalente.
 - Si el pedido menciona Google Drive, carpetas sincronizadas, Shared Drives, Mi unidad o una ruta montada, probar `google-drive` antes de pensar en codigo o analisis.
-- Si el pedido menciona Eloqiant y n8n juntos, probar `eloqiant-n8n` antes de `automation-builder`.
-- Si el pedido menciona automatizacion, workflows, n8n, Make, Zapier, Power Automate o webhooks, probar `automation-builder` antes de `software-engineering`.
+- Si el pedido menciona `n8n`, probar `eloqiant-n8n` antes de `automation-builder`.
+- Si el pedido menciona automatizacion, workflows, Make, Zapier, Power Automate o webhooks, probar `automation-builder` antes de `software-engineering`.
 - Si el pedido es de automatizacion y no esta clara la tecnologia, hacer primero una sola pregunta corta para elegirla.
 - Si el pedido es de automatizacion y faltan integraciones especificas, el orquestador debe pedirlas antes de pasar a la skill.
 - Si la persona ya dijo `n8n`, `bot`, `automatizar`, `workflow` o `API`, no volver a proponer caminos manuales como respuestas rapidas, copiar y pegar o procesos semi manuales.
