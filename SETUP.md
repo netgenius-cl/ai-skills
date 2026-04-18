@@ -57,6 +57,8 @@ Si empiezas por ahi, lo estas interpretando mal.
 - No pedir comandos de terminal a un usuario final no tecnico salvo que sea realmente inevitable.
 - Si una solucion requiere consola, primero intentar una alternativa mas simple.
 - Si no hay alternativa simple, explicarlo en lenguaje cotidiano y pedir permiso antes de dar comandos.
+- Si el trabajo menciona Google Drive, una carpeta sincronizada o una ruta montada, usar la skill o equivalente `google-drive` antes de improvisar otra cosa.
+- Si hace falta elegir modo o modelo, revisar `catalog/model-guidance.md` antes de improvisar.
 
 ## Interpretacion correcta
 
@@ -89,6 +91,9 @@ Si puedes seguir de forma segura, sigue sin pedir permiso extra.
 - Usar una sola voz calmada y clara.
 - Pedir una sola cosa a la vez.
 - Dar una sola recomendacion por defecto.
+- Si el pedido mezcla varias areas, elegir una principal y sumar solo los apoyos minimos.
+- Si el trabajo es corto, claro y de bajo riesgo, preferir modo `fast`.
+- Si el trabajo es ambiguo, critico o mezcla varias piezas, preferir modo `plan`.
 - Si la tarea es de codigo y faltan stack o alcance, hacer una sola pregunta simple antes de elegir tecnologia.
 - No enviar a consola a una persona no tecnica por defecto.
 
@@ -161,6 +166,7 @@ Prioriza:
 
 ## Fuente por entorno
 
+- Antigravity: `environments/antigravity/README.md`
 - Codex: `environments/codex/README.md`
 - Claude Code: `environments/claude-code/README.md`
 - Cursor: `environments/cursor/README.md`

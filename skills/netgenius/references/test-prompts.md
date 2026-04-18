@@ -23,3 +23,27 @@ Usa $netgenius para coordinar lo necesario, pero responder siempre en lenguaje s
 ```text
 Usa $netgenius para intentar actualizar esta skill desde su fuente principal y decirme en simple si se pudo o que falta.
 ```
+
+## Prueba 5
+
+```text
+Usa $netgenius para revisar archivos que tengo en Google Drive montado en Windows sin llenar la carpeta con cosas extra.
+```
+
+## Prueba 6
+
+```text
+Usa $netgenius para ayudarme con un dashboard de ventas, pero primero confirma en una sola pregunta simple si lo quiero como pagina lista para usar o como base tecnica.
+```
+
+## Prueba 7
+
+```text
+Usa $netgenius para decirme cuando conviene fast y cuando conviene plan en Antigravity.
+```
+
+## Prueba 8
+
+```text
+Usa $netgenius para recomendarme un modelo para codigo profundo, uno para analisis de datos y uno general, usando la guia actual del catalogo.
+```

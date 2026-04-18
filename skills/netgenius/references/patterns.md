@@ -71,3 +71,22 @@ Si se puede:
 
 Si no se puede:
 "Aqui no puedo actualizarla automaticamente, pero te dejo el camino mas simple para hacerlo."
+
+## Cuando mencionen Google Drive
+
+Si la persona dice algo como:
+
+- "mi carpeta de Drive esta en Windows"
+- "te conecto Google Drive"
+- "tengo un enlace de Drive"
+
+Primero pensar en `google-drive`.
+
+No decir:
+"Necesito integrar la API de Google Drive."
+
+Antes probar este orden:
+
+1. ruta local sincronizada o montada
+2. enlace compartido si el entorno puede abrirlo
+3. pedir una alternativa simple si ninguna de las dos sirve

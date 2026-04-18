@@ -52,7 +52,9 @@ Si un agente recibe una instruccion como "lee este README y configura este entor
 ## Estructura
 
 - [catalog/](./catalog/README.md): indice y arquitectura escalable del catalogo
+- [catalog/model-guidance.md](./catalog/model-guidance.md): guia viva de modelos, modos y politica de refresco
 - [skills/](./skills/): skills nativas de Codex
+- [environments/antigravity/](./environments/antigravity/README.md): guia para Antigravity
 - [environments/codex/](./environments/codex/README.md): guia para Codex
 - [environments/claude-code/](./environments/claude-code/README.md): memoria y hooks para Claude Code
 - [environments/cursor/](./environments/cursor/README.md): rules, AGENTS.md y background agents para Cursor
@@ -63,6 +65,10 @@ Si un agente recibe una instruccion como "lee este README y configura este entor
 ### Codex
 
 Usar la skill `netgenius` desde [skills/netgenius/](./skills/netgenius/SKILL.md).
+
+### Antigravity
+
+Usar [environments/antigravity/README.md](./environments/antigravity/README.md) y preferir `AGENTS.md`. Mantener `GEMINI.md` solo como compatibilidad si ese entorno o version todavia lo usa.
 
 ### Claude Code
 
@@ -108,8 +114,31 @@ Sirve para reforzar la capa de explicacion clara y amable cuando el usuario fina
 
 ## Dominios iniciales
 
+- `google-drive`: acceso a archivos de Google Drive sincronizados, montados o compartidos
 - `software-engineering`: codigo, bugs, integraciones y automatizacion
 - `data-analysis`: analisis de datos y metricas
 - `report-generation`: informes y resumentes ejecutivos
 - `web-dashboard-builder`: dashboards web interactivos
 - `critical-info-auditor`: revision de informacion critica
+
+## Regla de orquestacion
+
+El orquestador no debe adivinar.
+
+Debe usar [catalog/skills-index.yaml](./catalog/skills-index.yaml) como mapa de decision:
+
+- primero detectar intencion
+- luego elegir una skill principal
+- sumar apoyos solo si hacen falta
+- si faltan archivos o una skill, llamar a `skill-maintainer`
+- si el pedido menciona Drive, rutas sincronizadas o enlaces de Drive, probar `google-drive` antes que otras skills
+
+## Modos y modelos
+
+La guia viva esta en [catalog/model-guidance.md](./catalog/model-guidance.md).
+
+Regla:
+
+- `fast`: resolver rapido, poco overhead, preguntas cortas y cambios pequenos
+- `plan`: pensar mas, aclarar riesgos y enrutar mejor cuando el trabajo es ambiguo o importante
+- las recomendaciones de modelos cambian con el tiempo y deben refrescarse con fecha

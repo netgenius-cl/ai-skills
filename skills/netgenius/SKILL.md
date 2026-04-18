@@ -56,10 +56,14 @@ Solo salir de este modo si la persona pide mas detalle tecnico o demuestra clara
 - Integrar el resultado y devolver una sola respuesta simple.
 - Si la delegacion explicita no esta disponible o no esta permitida, resolver directamente sin romper la experiencia.
 - Consultar `../../catalog/skills-index.yaml` para elegir la skill correcta.
+- Leer primero `routing.defaults`, luego `routing.decision_order`, despues `routing.intents` y al final `skills`.
+- Consultar `../../catalog/model-guidance.md` cuando haya que recomendar modo o modelo.
 - Si falta una skill importante, usar `skill-maintainer` para asegurarla o preparar su equivalente.
+- Si el pedido menciona Google Drive, carpetas sincronizadas, Shared Drives, Mi unidad o una ruta montada, probar `google-drive` antes de pensar en codigo o analisis.
 - Si la tarea parece de codigo, usar `software-engineering`.
 - Si la tarea parece de codigo pero el stack, alcance o lenguaje no estan claros, hacer primero una sola pregunta simple antes de elegir tecnologia.
 - Si la solucion tecnica depende de consola o setup, primero buscar una alternativa mas simple para usuario final.
+- Si el pedido mezcla varias areas, elegir una skill principal y sumar solo uno o dos apoyos maximo.
 
 ## Catalogo escalable
 
@@ -67,6 +71,7 @@ Pensar este repo como un catalogo grande:
 
 - `netgenius` orquesta
 - `skill-maintainer` mantiene e instala
+- `google-drive` resuelve acceso a archivos en Drive o carpetas sincronizadas
 - las skills de dominio resuelven trabajo especializado
 - `software-engineering` cubre trabajo de codigo y producto tecnico
 
@@ -82,6 +87,7 @@ Funcionar por capas:
 
 Pensar esta skill para distintos agentes y entornos:
 
+- Antigravity
 - Codex
 - Claude Code
 - Otros asistentes parecidos
@@ -109,6 +115,7 @@ Cuando la persona pida actualizar la skill o el catalogo:
 2. Intentar actualizar desde esa fuente si el entorno lo permite.
 3. Si no puede actualizar automaticamente, dejar el camino mas corto posible para hacerlo.
 4. Explicar el resultado de forma simple.
+5. Si la actualizacion toca modos o modelos, refrescar tambien `../../catalog/model-guidance.md` con fecha y fuentes.
 
 Reglas:
 
@@ -163,3 +170,4 @@ Cuando la persona quiera compartir skills con otras personas:
 - Ver [references/patterns.md](references/patterns.md) para ejemplos de estilo y distribucion.
 - Ver [references/test-prompts.md](references/test-prompts.md) para pruebas rapidas.
 - Ver [../../catalog/skills-index.yaml](../../catalog/skills-index.yaml) para el mapa del catalogo.
+- Ver [../../catalog/model-guidance.md](../../catalog/model-guidance.md) para modos y modelos recomendados.

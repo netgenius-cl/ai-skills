@@ -1,12 +1,109 @@
-version: 1
+version: 2
 default_entry_skill: netgenius
 maintainer_skill: skill-maintainer
+
+routing:
+  defaults:
+    response_mode: simple
+    assume_non_technical: true
+    ask_one_scope_question_if_unclear: true
+    minimize_project_footprint: true
+    prefer_existing_tools_and_paths: true
+    consult_model_guidance_before_recommending_models: true
+    model_guidance_file: catalog/model-guidance.md
+  decision_order:
+    - "Si el usuario no sabe que skill usar, empezar por netgenius."
+    - "Si falta una skill, una plantilla o una traduccion al entorno, llamar a skill-maintainer."
+    - "Si el pedido menciona Drive, carpetas sincronizadas, enlaces compartidos o archivos en la nube, evaluar google-drive antes de otras skills."
+    - "Si el pedido es de codigo pero el stack o alcance no estan claros, preguntar una sola cosa simple antes de enrutar."
+    - "Si el pedido incluye eleccion de modo o modelo, consultar model-guidance.md."
+    - "Si el trabajo mezcla varias areas, elegir una skill principal y sumar solo apoyos minimos."
+  intents:
+    - name: unknown_or_mixed
+      routes_to: netgenius
+      keywords:
+        - ayuda
+        - no se
+        - orienta
+        - orquesta
+        - coordina
+    - name: skill_installation_or_update
+      routes_to: skill-maintainer
+      keywords:
+        - instala
+        - instala skill
+        - actualiza skill
+        - falta una skill
+        - mantenedor
+    - name: cloud_file_access
+      routes_to: google-drive
+      keywords:
+        - google drive
+        - drive
+        - carpeta sincronizada
+        - carpeta montada
+        - shared drive
+        - mi unidad
+        - enlace de drive
+      optional_support:
+        - data-analysis
+        - report-generation
+        - software-engineering
+    - name: coding_work
+      routes_to: software-engineering
+      keywords:
+        - codigo
+        - bug
+        - api
+        - script
+        - integracion
+        - automatizacion
+      ask_if_missing:
+        - stack
+        - alcance
+    - name: analytics_work
+      routes_to: data-analysis
+      keywords:
+        - csv
+        - metricas
+        - datos
+        - dashboard
+        - anomalia
+        - sql
+    - name: reporting_work
+      routes_to: report-generation
+      keywords:
+        - informe
+        - reporte
+        - resumen ejecutivo
+        - narrativa
+    - name: dashboard_work
+      routes_to: web-dashboard-builder
+      keywords:
+        - dashboard
+        - panel
+        - grafico
+        - filtros
+        - visualizacion
+      optional_support:
+        - data-analysis
+    - name: critical_assurance
+      routes_to: critical-info-auditor
+      keywords:
+        - auditoria
+        - informacion critica
+        - trazabilidad
+        - cifra sensible
+        - validacion
 
 skills:
   - name: netgenius
     domain: orchestration
     role: entrypoint
     summary: "Orquestador principal con modo simple por defecto."
+    aliases:
+      - agente netgenius
+      - asistente netgenius
     use_when:
       - "el usuario no sabe que skill necesita"
       - "hay que coordinar varias capacidades"
@@ -14,28 +111,74 @@ skills:
     optional_dependencies:
       - skill-maintainer
       - respuesta-simple
+    can_delegate_to:
+      - google-drive
+      - software-engineering
+      - data-analysis
+      - report-generation
+      - web-dashboard-builder
+      - critical-info-auditor
 
   - name: skill-maintainer
     domain: maintenance
     role: maintainer
     summary: "Asegura, instala, actualiza o prepara skills y recipes del catalogo."
+    aliases:
+      - maintainer
+      - installer
     use_when:
       - "falta una skill para resolver una tarea"
       - "hay que actualizar o sincronizar una skill"
       - "hay que preparar el entorno para otra skill"
+    capabilities:
+      - "traducir una skill al formato nativo del entorno"
+      - "materializar solo los archivos necesarios"
+      - "evitar git clone por defecto"
 
   - name: respuesta-simple
     domain: communication
     role: support
     summary: "Capa de explicacion ultra simple para usuario final."
+    aliases:
+      - simple
+      - modo simple
     use_when:
       - "el usuario final no es tecnico"
       - "hay que resumir trabajo tecnico"
+
+  - name: google-drive
+    domain: storage
+    role: worker
+    summary: "Acceso y trabajo con archivos de Google Drive sincronizados, montados o compartidos."
+    aliases:
+      - drive
+      - google workspace files
+      - shared drive
+    use_when:
+      - "hay que abrir, ubicar o usar archivos que vienen desde Google Drive"
+      - "la persona conecta Drive a Windows o entrega una ruta local sincronizada"
+      - "hay un enlace de Drive y hace falta decidir si este entorno puede abrirlo o pedir alternativa"
+    environments:
+      - codex
+      - claude-code
+      - cursor
+      - cloud-no-skills
+    optional_dependencies:
+      - data-analysis
+      - report-generation
+      - software-engineering
+    handoff_outputs:
+      - "ruta local confirmada"
+      - "modo de acceso confirmado"
+      - "lista corta de archivos relevantes"
 
   - name: data-analysis
     domain: analytics
     role: worker
     summary: "Analisis de datos, metricas, tendencias, anomalias y preguntas de negocio."
+    aliases:
+      - analytics
+      - data
     use_when:
       - "hay datasets o metricas"
       - "hay que explicar numeros o detectar anomalias"
@@ -44,6 +187,9 @@ skills:
     domain: reporting
     role: worker
     summary: "Convierte hallazgos en informes claros, ejecutivos o operativos."
+    aliases:
+      - reports
+      - informes
     use_when:
       - "hay que producir un informe"
       - "hay que convertir analisis en narrativa accionable"
@@ -54,6 +200,9 @@ skills:
     domain: dashboards
     role: worker
     summary: "Construye dashboards web interactivos y claros."
+    aliases:
+      - dashboard
+      - panel web
     use_when:
       - "hay que crear dashboards o paneles web"
       - "hay que visualizar metricas y filtros"
@@ -64,6 +213,9 @@ skills:
     domain: assurance
     role: worker
     summary: "Audita informacion critica, cifras sensibles y decisiones de alto riesgo."
+    aliases:
+      - auditor
+      - assurance
     use_when:
       - "hay datos sensibles o decisiones importantes"
       - "hay que revisar consistencia o trazabilidad"
@@ -75,6 +227,10 @@ skills:
     domain: engineering
     role: worker
     summary: "Resuelve trabajo de codigo, bugs, features, integraciones y mantenimiento tecnico."
+    aliases:
+      - coding
+      - development
+      - code
     use_when:
       - "hay que escribir o modificar codigo"
       - "hay bugs, refactors o automatizacion"

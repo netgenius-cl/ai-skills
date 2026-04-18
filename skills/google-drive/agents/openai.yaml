@@ -1,0 +1,4 @@
+interface:
+  display_name: "Google Drive"
+  short_description: "Acceso simple a archivos de Drive y carpetas sincronizadas"
+  default_prompt: "Usa $google-drive para ayudarme con archivos de Google Drive o carpetas sincronizadas sin complicarlo."

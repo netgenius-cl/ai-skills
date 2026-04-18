@@ -10,18 +10,21 @@ Ser el mantenedor del catalogo. Asegurar que la skill correcta exista, este list
 ## Responsabilidad
 
 - Revisar `catalog/skills-index.yaml` antes de actuar.
+- Revisar `catalog/model-guidance.md` si hay cambios de modo, entorno o recomendacion de modelos.
 - Detectar si la skill ya existe o si solo falta activarla.
 - Instalar o preparar una skill solo cuando agregue valor real.
 - Evitar duplicados, nombres inconsistentes y setup innecesario.
 - Si no se puede instalar, dejar el siguiente mejor camino.
+- Si el orquestador pide una skill nueva, crear solo la estructura minima necesaria.
 
 ## Flujo
 
 1. Confirmar que la necesidad existe.
-2. Buscar la skill en el indice.
+2. Buscar la skill en `routing.intents` y `skills`.
 3. Ver si ya esta presente en el entorno actual.
-4. Si falta, instalarla o preparar su equivalente.
+4. Si falta, instalarla, materializarla o preparar su equivalente nativo.
 5. Si no se puede, explicarlo simple y dejar fallback.
+6. Si la actualizacion cambia el panorama de modelos o modos, refrescar la guia y dejar fecha.
 
 ## Regla de seguridad
 
@@ -29,6 +32,8 @@ Ser el mantenedor del catalogo. Asegurar que la skill correcta exista, este list
 - No inventar una skill si no esta en el catalogo.
 - Si una skill no existe aun, proponer crearla de forma secuencial.
 - No interrumpir al usuario con detalles tecnicos salvo que los pida.
+- Minimizar archivos nuevos: crear solo los directorios y archivos que el entorno realmente necesita.
+- Cuando actualices recomendaciones de modelos, verificar primero fuentes actuales y anotar la fecha.
 
 ## Fallback
 
@@ -42,4 +47,3 @@ Si no puedes traer una skill:
 
 - Ver [references/playbook.md](references/playbook.md)
 - Ver [../../catalog/skills-index.yaml](../../catalog/skills-index.yaml)
-
