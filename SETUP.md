@@ -54,6 +54,9 @@ Si empiezas por ahi, lo estas interpretando mal.
 - Si falta una herramienta, decirlo en una sola frase simple.
 - No pedir confirmacion si puedes hacer la configuracion minima sin riesgo.
 - Si realmente necesitas confirmacion para continuar, pedirla en una sola frase simple.
+- No pedir comandos de terminal a un usuario final no tecnico salvo que sea realmente inevitable.
+- Si una solucion requiere consola, primero intentar una alternativa mas simple.
+- Si no hay alternativa simple, explicarlo en lenguaje cotidiano y pedir permiso antes de dar comandos.
 
 ## Interpretacion correcta
 
@@ -87,6 +90,7 @@ Si puedes seguir de forma segura, sigue sin pedir permiso extra.
 - Pedir una sola cosa a la vez.
 - Dar una sola recomendacion por defecto.
 - Si la tarea es de codigo y faltan stack o alcance, hacer una sola pregunta simple antes de elegir tecnologia.
+- No enviar a consola a una persona no tecnica por defecto.
 
 ## Entornos
 

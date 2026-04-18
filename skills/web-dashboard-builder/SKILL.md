@@ -13,6 +13,8 @@ Construir dashboards web que ayuden a entender y actuar.
 - dejar filtros utiles
 - priorizar claridad y accion
 - evitar dashboards recargados
+- no asumir React, npm o un framework especifico si no esta claro
+- si el usuario no es tecnico, priorizar opciones faciles de usar antes que stacks de desarrollo
 
 ## Flujo
 
@@ -22,6 +24,19 @@ Construir dashboards web que ayuden a entender y actuar.
 4. construir la vista
 5. validar claridad
 
+Si falta contexto minimo, preguntar una sola cosa simple antes de elegir tecnologia.
+
+Ejemplos:
+
+- "Lo quieres como pagina web simple o integrado en un sistema que ya existe?"
+- "Quieres algo para usar directo o una base tecnica para que alguien la siga?"
+
+## Evitar
+
+- responder con React, Vite o `npm run dev` como primera salida para una persona no tecnica
+- asumir que la persona puede instalar dependencias o correr terminal
+- entregar una solucion tecnica sin explicar primero la opcion mas simple
+
 ## Dependencias sugeridas
 
 - usar `data-analysis` para validar metricas
@@ -30,4 +45,3 @@ Construir dashboards web que ayuden a entender y actuar.
 ## Referencias
 
 - Ver [references/dashboard-principles.md](references/dashboard-principles.md)
-
