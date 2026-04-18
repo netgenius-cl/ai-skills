@@ -9,6 +9,8 @@ routing:
     ask_one_scope_question_if_unclear: true
     minimize_project_footprint: true
     prefer_existing_tools_and_paths: true
+    optimize_internal_tokens: true
+    keep_user_facing_tone_warm: true
     consult_model_guidance_before_recommending_models: true
     model_guidance_file: catalog/model-guidance.md
   decision_order:

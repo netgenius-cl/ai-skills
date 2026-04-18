@@ -48,6 +48,7 @@ Si un agente recibe una instruccion como "lee este README y configura este entor
 - usar modo simple por defecto
 - asumir que la persona no es tecnica
 - usar `respuesta-simple` como apoyo si existe
+- optimizar tokens en el razonamiento interno, no en la calidez visible para el usuario
 
 ## Estructura
 

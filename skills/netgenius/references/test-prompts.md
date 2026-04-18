@@ -47,3 +47,9 @@ Usa $netgenius para decirme cuando conviene fast y cuando conviene plan en Antig
 ```text
 Usa $netgenius para recomendarme un modelo para codigo profundo, uno para analisis de datos y uno general, usando la guia actual del catalogo.
 ```
+
+## Prueba 9
+
+```text
+Usa $netgenius para pensar de forma puntual y con pocas palabras internas, pero explicarme en simple y amable como dejarias lista una automatizacion diaria.
+```
