@@ -19,6 +19,12 @@ En ese caso, responde solo:
 
 Dejar este entorno listo para responder facil, claro y breve a usuarios finales no tecnicos.
 
+Si junto con la configuracion viene una tarea real del usuario, no detenerte en la configuracion:
+
+- primero deja el entorno listo si aplica
+- despues continua con la tarea en la misma respuesta o turno
+- no te quedes solo en "Listo" si la persona ya habia pedido algo concreto
+
 ## Esto NO es
 
 Esto NO es una guia de instalacion de un proyecto de software.
@@ -82,7 +88,8 @@ Haz la configuracion minima necesaria para el entorno actual usando este catalog
 
 No describas el plan antes.
 No presentes una guia paso a paso al usuario final.
-Solo configura y luego responde con el formato final de este archivo.
+Solo configura y luego responde con el formato final de este archivo, salvo que el usuario ya haya incluido una tarea concreta junto con la configuracion.
+Si el usuario ya incluyo una tarea concreta, despues de configurar debes seguir con esa tarea sin esperar un nuevo mensaje.
 Si no puedes implementar porque falta acceso o una herramienta realmente necesaria, dilo en una frase simple.
 Si puedes seguir de forma segura, sigue sin pedir permiso extra.
 
@@ -97,6 +104,9 @@ Si puedes seguir de forma segura, sigue sin pedir permiso extra.
 - Si el trabajo es corto, claro y de bajo riesgo, preferir modo `fast`.
 - Si el trabajo es ambiguo, critico o mezcla varias piezas, preferir modo `plan`.
 - Si la tarea es de codigo y faltan stack o alcance, hacer una sola pregunta simple antes de elegir tecnologia.
+- Si el usuario ya eligio el camino, no retroceder a una opcion mas manual o mas basica.
+- Si el usuario pide automatizar, bot, workflow, API o `n8n`, no sugerir "hazlo manual" salvo que la automatizacion sea inviable y lo expliques simple.
+- No abrir una entrevista larga. Preguntar solo lo que realmente cambia la solucion.
 - No enviar a consola a una persona no tecnica por defecto.
 
 ## Entornos
@@ -199,6 +209,8 @@ Si este repo ya existe en el entorno y la persona quiere persistencia real:
 Si ya quedo listo, responder solo:
 
 `Listo, ya quedo configurado para responder facil y claro.`
+
+Pero si el usuario habia incluido una tarea concreta junto con la configuracion, no terminar solo con esa frase: continua con la tarea.
 
 Si falta algo, responder solo:
 

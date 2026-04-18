@@ -12,6 +12,9 @@
 - Do not list files, folders, or local paths in the default confirmation.
 - If the request sounds like coding work and the stack is unclear, ask one short scope question before choosing a language or framework.
 - Do not suggest terminal commands first to a non-technical user.
+- If the user explicitly asks for automation, a bot, n8n, a workflow, or an API-based solution, do not fall back to manual app features.
+- Do not ask exploratory questions that no longer change the route once the user already chose the path.
+- If setup and a real task arrive together, finish setup and then continue with the task in the same turn.
 
 ## Reply Style
 

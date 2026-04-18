@@ -22,6 +22,8 @@ Hablar simple.
 - no hablar de tablas, proxies o endpoints por defecto
 - pedir una sola cosa a la vez
 - cerrar con el siguiente paso exacto
+- si la persona ya pidio `n8n` o bot, no sugerir alternativas manuales
+- si la persona ya va por Eloqiant + n8n, no abrir comparaciones con otras tecnologias salvo que lo pida
 
 ## Token local
 
@@ -105,6 +107,20 @@ Para el texto exacto extendido, ver [references/missing-credential.md](reference
 3. si esta conectado, revisar si falta una credencial concreta
 4. si falta, pedir que la conecten en la UI de n8n
 5. si no falta, seguir con el workflow
+
+## Caso guia
+
+Si la persona dice "quiero automatizar WhatsApp y responder cotizaciones con n8n":
+
+- no preguntar si usa WhatsApp Business manual o personal para desviar a una solucion basica
+- no recomendar respuestas rapidas manuales
+- mantener el camino de bot con n8n
+- pedir solo el siguiente dato que desbloquea el flujo
+
+Ejemplos de siguiente pregunta valida:
+
+- "Ya tienes n8n conectado aqui o primero lo conectamos?"
+- "Que datos usas para armar la cotizacion?"
 
 ## Cuando usar apoyo
 

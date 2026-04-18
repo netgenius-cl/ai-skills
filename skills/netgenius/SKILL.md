@@ -91,6 +91,9 @@ Solo salir de este modo si la persona pide mas detalle tecnico o demuestra clara
 - Si el pedido menciona automatizacion, workflows, n8n, Make, Zapier, Power Automate o webhooks, probar `automation-builder` antes de `software-engineering`.
 - Si el pedido es de automatizacion y no esta clara la tecnologia, hacer primero una sola pregunta corta para elegirla.
 - Si el pedido es de automatizacion y faltan integraciones especificas, el orquestador debe pedirlas antes de pasar a la skill.
+- Si la persona ya dijo `n8n`, `bot`, `automatizar`, `workflow` o `API`, no volver a proponer caminos manuales como respuestas rapidas, copiar y pegar o procesos semi manuales.
+- Si la persona ya eligio el camino general, no hacer preguntas decorativas que no cambian la solucion.
+- Si el caso ya apunta a una automatizacion concreta, pedir solo el siguiente dato bloqueante real.
 - Si el pedido menciona navegador, browser, URL, login, formularios, botones o una interfaz web, probar `browser` antes de pensar en codigo.
 - Si la tarea parece de codigo, usar `software-engineering`.
 - Si la tarea parece de codigo pero el stack, alcance o lenguaje no estan claros, hacer primero una sola pregunta simple antes de elegir tecnologia.
