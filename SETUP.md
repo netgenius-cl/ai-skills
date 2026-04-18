@@ -41,6 +41,8 @@ Si empiezas por ahi, lo estas interpretando mal.
 
 - No clonar ni descargar este repositorio con `git` salvo que la persona lo pida.
 - No crear copias locales del catalogo por defecto.
+- Usar este repo local como fuente principal de instrucciones y skills si ya existe en el entorno.
+- Si el repo no existe localmente, usar la version remota de este mismo repositorio.
 - Leer solo los archivos necesarios de este repositorio.
 - Crear solo los archivos nativos del entorno actual.
 - Minimizar la huella en el proyecto: crear un solo archivo por defecto cuando sea posible.
@@ -171,6 +173,26 @@ Prioriza:
 - Claude Code: `environments/claude-code/README.md`
 - Cursor: `environments/cursor/README.md`
 - Cloud sin skills: `environments/cloud-no-skills/README.md`
+
+## Regla de fuente
+
+Preferir siempre los archivos locales del repo cuando existan.
+Si no existen, usar las URLs equivalentes de este mismo repositorio para una instalacion simple en cualquier agente.
+
+## Catalogo local persistente
+
+Si este repo ya existe en el entorno y la persona quiere persistencia real:
+
+1. materializar `.netgenius/` desde `ai-skills/`
+2. usar `.netgenius/skills` como catalogo instalado
+3. mantener `ai-skills/` como fuente editable
+4. cuando pidan actualizar, volver a sincronizar `.netgenius/`
+
+## Vigencia
+
+- usar `catalog/update-policy.json` para la fecha de vigencia hardcodeada del catalogo
+- si el catalogo esta vencido, recomendar refresco solo cuando la tarea dependa de informacion cambiante o cuando el usuario hable de mantenimiento
+- no convertir la vigencia en advertencia repetitiva en cada respuesta
 
 ## Respuesta final
 

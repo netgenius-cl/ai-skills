@@ -36,6 +36,8 @@ Si un agente recibe una instruccion como "lee este README y configura este entor
 - configurar solo lo minimo necesario para ese entorno
 - no clonar ni descargar este repositorio con `git` salvo que la persona lo pida
 - no crear copias locales del catalogo por defecto
+- usar este repo local como fuente principal si ya existe en el entorno
+- si el repo no existe localmente, usar este mismo repositorio por enlace
 - si necesita leer un archivo, leer solo el archivo necesario
 - si ejecuta comandos, resumir el resultado en una frase muy corta
 - al terminar, responder como usuario final y no como tecnico
@@ -53,6 +55,7 @@ Si un agente recibe una instruccion como "lee este README y configura este entor
 ## Estructura
 
 - [catalog/](./catalog/README.md): indice y arquitectura escalable del catalogo
+- [catalog/context-index.md](./catalog/context-index.md): indice corto para cargar primero en contexto
 - [catalog/model-guidance.md](./catalog/model-guidance.md): guia viva de modelos, modos y politica de refresco
 - [skills/](./skills/): skills nativas de Codex
 - [environments/antigravity/](./environments/antigravity/README.md): guia para Antigravity
@@ -82,6 +85,34 @@ Usar la version de `netgenius` para `AGENTS.md`, Project Rules y opcionalmente b
 ### Cloud sin skills
 
 Usar la version informativa para agentes como Gemini desde [environments/cloud-no-skills/](./environments/cloud-no-skills/README.md).
+
+## Reglas de autonomia local
+
+- este repo debe poder funcionar sin depender de enlaces externos como fuente principal
+- si hay una instruccion local y una remota, preferir la local
+- cuando pidan persistencia, usar archivos persistentes del repo antes que prompts efimeros
+
+## Regla de entrada
+
+- mantener instalacion facil por enlace para cualquier agente
+- mantener tambien uso local cuando el repo ya este clonado
+- no crear dos catalogos distintos: el remoto y el local deben representar este mismo repo
+
+## Instalacion local completa
+
+Si el entorno ya tiene este repo, se puede materializar un catalogo persistente completo en `.netgenius/`.
+
+Ese catalogo incluye:
+
+- `skills/`
+- `catalog/`
+- `environments/`
+- `README.md`
+- `SETUP.md`
+
+La instalacion o refresco local se hace con:
+
+`npm run netgenius:install`
 
 ## Skill principal
 
@@ -116,7 +147,10 @@ Sirve para reforzar la capa de explicacion clara y amable cuando el usuario fina
 ## Dominios iniciales
 
 - `google-drive`: acceso a archivos de Google Drive sincronizados, montados o compartidos
-- `software-engineering`: codigo, bugs, integraciones y automatizacion
+- `eloqiant-n8n`: conexion simple entre Eloqiant y n8n para usuarios finales
+- `automation-builder`: automatizaciones, workflows, webhooks y tecnologia como n8n
+- `browser`: navegacion web segura, lectura de paginas, formularios, login y validacion antes de hacer clic
+- `software-engineering`: codigo, bugs, integraciones y automatizacion tecnica
 - `data-analysis`: analisis de datos y metricas
 - `report-generation`: informes y resumentes ejecutivos
 - `web-dashboard-builder`: dashboards web interactivos
@@ -128,15 +162,22 @@ El orquestador no debe adivinar.
 
 Debe usar [catalog/skills-index.yaml](./catalog/skills-index.yaml) como mapa de decision:
 
+Antes, si necesita una carga minima, puede leer [catalog/context-index.md](./catalog/context-index.md).
+
 - primero detectar intencion
 - luego elegir una skill principal
 - sumar apoyos solo si hacen falta
 - si faltan archivos o una skill, llamar a `skill-maintainer`
+- si el pedido es de automatizacion y falta tecnologia, preguntar una sola cosa corta antes de enrutar
+- si el pedido es de automatizacion y faltan integraciones especificas, aclararlas desde el orquestador
 - si el pedido menciona Drive, rutas sincronizadas o enlaces de Drive, probar `google-drive` antes que otras skills
+- si el pedido menciona navegador, browser, URL, formularios o una interfaz web, probar `browser` antes de saltar a codigo
 
 ## Modos y modelos
 
 La guia viva esta en [catalog/model-guidance.md](./catalog/model-guidance.md).
+
+La politica de vigencia esta en [catalog/update-policy.json](./catalog/update-policy.json).
 
 Regla:
 

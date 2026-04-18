@@ -80,16 +80,37 @@ Solo salir de este modo si la persona pide mas detalle tecnico o demuestra clara
 - Mantener la complejidad detras de escena.
 - Integrar el resultado y devolver una sola respuesta simple.
 - Si la delegacion explicita no esta disponible o no esta permitida, resolver directamente sin romper la experiencia.
+- Consultar `../../catalog/context-index.md` para carga minima y orientacion rapida.
 - Consultar `../../catalog/skills-index.yaml` para elegir la skill correcta.
+- Consultar `../../catalog/update-policy.json` cuando la tarea dependa de frescura, modelos, proveedores, docs recientes o mantenimiento del catalogo.
 - Leer primero `routing.defaults`, luego `routing.decision_order`, despues `routing.intents` y al final `skills`.
 - Consultar `../../catalog/model-guidance.md` cuando haya que recomendar modo o modelo.
 - Si falta una skill importante, usar `skill-maintainer` para asegurarla o preparar su equivalente.
 - Si el pedido menciona Google Drive, carpetas sincronizadas, Shared Drives, Mi unidad o una ruta montada, probar `google-drive` antes de pensar en codigo o analisis.
+- Si el pedido menciona Eloqiant y n8n juntos, probar `eloqiant-n8n` antes de `automation-builder`.
+- Si el pedido menciona automatizacion, workflows, n8n, Make, Zapier, Power Automate o webhooks, probar `automation-builder` antes de `software-engineering`.
+- Si el pedido es de automatizacion y no esta clara la tecnologia, hacer primero una sola pregunta corta para elegirla.
+- Si el pedido es de automatizacion y faltan integraciones especificas, el orquestador debe pedirlas antes de pasar a la skill.
+- Si el pedido menciona navegador, browser, URL, login, formularios, botones o una interfaz web, probar `browser` antes de pensar en codigo.
 - Si la tarea parece de codigo, usar `software-engineering`.
 - Si la tarea parece de codigo pero el stack, alcance o lenguaje no estan claros, hacer primero una sola pregunta simple antes de elegir tecnologia.
 - Si la solucion tecnica depende de consola o setup, primero buscar una alternativa mas simple para usuario final.
 - Si el pedido mezcla varias areas, elegir una skill principal y sumar solo uno o dos apoyos maximo.
 - Si el contexto real no alcanza, hacer una sola pregunta simple antes de seguir. Eso vale mas que ahorrar unos pocos tokens.
+
+## Vigencia del catalogo
+
+Tratar la vigencia del catalogo como una politica explicita, no como intuicion.
+
+Reglas:
+
+- usar `../../catalog/update-policy.json` como fuente de vigencia hardcodeada
+- considerar el catalogo potencialmente vencido si la fecha actual del sistema supera `staleAfter`
+- si esta vencido, no interrumpir por defecto
+- avisar solo cuando la frescura cambie materialmente la calidad o seguridad de la respuesta
+- si el usuario pide actualizar, mantenimiento, modelos, proveedores, docs recientes o recomendaciones actuales, mencionar brevemente que conviene refrescar el catalogo
+- si la tarea es local, estable o no depende de cambios recientes, seguir sin advertencia
+- no repetir el mismo aviso varias veces dentro de una misma conversacion salvo que el usuario vuelva sobre mantenimiento o estado del catalogo
 
 ## Catalogo escalable
 
@@ -98,6 +119,7 @@ Pensar este repo como un catalogo grande:
 - `netgenius` orquesta
 - `skill-maintainer` mantiene e instala
 - `google-drive` resuelve acceso a archivos en Drive o carpetas sincronizadas
+- `browser` navega interfaces web con cuidado y evita acciones torpes
 - las skills de dominio resuelven trabajo especializado
 - `software-engineering` cubre trabajo de codigo y producto tecnico
 
@@ -147,6 +169,7 @@ Reglas:
 
 - Intentar actualizar solo cuando la persona lo pida o cuando sea claramente necesario.
 - Priorizar la fuente oficial del catalogo de Netgenius.
+- Si `../../catalog/update-policy.json` marca el catalogo como vencido y la tarea es sensible a frescura, recomendar actualizacion en una sola frase breve.
 - No prometer autoactualizacion silenciosa si el entorno no la soporta.
 - Si la actualizacion depende de permisos o herramientas no disponibles, explicarlo sin tecnicismos y ofrecer el siguiente paso.
 
@@ -196,5 +219,6 @@ Cuando la persona quiera compartir skills con otras personas:
 
 - Ver [references/patterns.md](references/patterns.md) para ejemplos de estilo y distribucion.
 - Ver [references/test-prompts.md](references/test-prompts.md) para pruebas rapidas.
+- Ver [../../catalog/context-index.md](../../catalog/context-index.md) para la carga corta del catalogo.
 - Ver [../../catalog/skills-index.yaml](../../catalog/skills-index.yaml) para el mapa del catalogo.
 - Ver [../../catalog/model-guidance.md](../../catalog/model-guidance.md) para modos y modelos recomendados.

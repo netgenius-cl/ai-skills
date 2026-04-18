@@ -1,0 +1,4 @@
+interface:
+  display_name: "Community Manager"
+  short_description: "Crea y adapta contenido para redes sociales segun plataforma y estilo"
+  default_prompt: "Usa $community-manager para crear contenido de redes sociales segun la plataforma, con presets simples de tono, personalidad y emojis."

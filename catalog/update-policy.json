@@ -1,0 +1,20 @@
+{
+  "catalogVersion": "2026.04.17",
+  "lastReviewedOn": "2026-04-17",
+  "staleAfterDays": 30,
+  "staleAfter": "2026-05-17",
+  "notifyOnlyWhen": [
+    "user asks to update or maintain the catalog",
+    "the task depends on freshness such as latest docs, models, prices, rules, libraries, APIs, or recommendations",
+    "the agent is about to recommend a model or a fast-changing provider fact"
+  ],
+  "silentWhen": [
+    "the task is local, stable, or does not depend on recent provider changes",
+    "the user did not ask about updates and freshness is not material to the answer"
+  ],
+  "messageStyle": {
+    "default": "brief",
+    "tone": "recommendation",
+    "doNotNagRepeatedly": true
+  }
+}

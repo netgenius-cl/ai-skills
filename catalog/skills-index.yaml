@@ -17,6 +17,10 @@ routing:
     - "Si el usuario no sabe que skill usar, empezar por netgenius."
     - "Si falta una skill, una plantilla o una traduccion al entorno, llamar a skill-maintainer."
     - "Si el pedido menciona Drive, carpetas sincronizadas, enlaces compartidos o archivos en la nube, evaluar google-drive antes de otras skills."
+    - "Si el pedido menciona Eloqiant y n8n juntos, evaluar eloqiant-n8n antes de automation-builder."
+    - "Si el pedido trata de automatizaciones, workflows, n8n, Make, Zapier o bots conectados, evaluar automation-builder antes de software-engineering."
+    - "Si el pedido trata de redes sociales, community manager, posts, captions o respuestas para cuentas sociales, evaluar community-manager antes de browser."
+    - "Si el pedido menciona navegador, browser, web, URL, login, formulario, click o una interfaz web, evaluar browser antes de pensar en codigo."
     - "Si el pedido es de codigo pero el stack o alcance no estan claros, preguntar una sola cosa simple antes de enrutar."
     - "Si el pedido incluye eleccion de modo o modelo, consultar model-guidance.md."
     - "Si el trabajo mezcla varias areas, elegir una skill principal y sumar solo apoyos minimos."
@@ -37,6 +41,47 @@ routing:
         - actualiza skill
         - falta una skill
         - mantenedor
+    - name: eloqiant_n8n_work
+      routes_to: eloqiant-n8n
+      keywords:
+        - eloqiant
+        - eloqiant n8n
+        - n8n eloqiant
+        - conectar n8n
+        - conectar eloqiant
+        - workflow en eloqiant
+        - workflows en eloqiant
+        - credencial n8n
+        - credentials n8n
+        - api key n8n
+      optional_support:
+        - automation-builder
+        - respuesta-simple
+    - name: automation_work
+      routes_to: automation-builder
+      keywords:
+        - automatizacion
+        - automatizar
+        - workflow
+        - workflows
+        - automatiza
+        - n8n
+        - make
+        - zapier
+        - power automate
+        - bot conectado
+        - integracion entre apps
+        - webhook
+        - trigger
+        - scheduler
+        - flujo automatico
+        - pipeline automatico
+      ask_if_missing:
+        - technology
+        - integrations
+      optional_support:
+        - software-engineering
+        - critical-info-auditor
     - name: cloud_file_access
       routes_to: google-drive
       keywords:
@@ -51,6 +96,49 @@ routing:
         - data-analysis
         - report-generation
         - software-engineering
+    - name: social_media_work
+      routes_to: community-manager
+      keywords:
+        - redes sociales
+        - red social
+        - social media
+        - community manager
+        - community
+        - contenido para redes
+        - publicacion
+        - post para redes
+        - instagram
+        - facebook
+        - linkedin
+        - tiktok
+        - x
+        - twitter
+        - threads
+        - reels
+        - shorts
+        - caption
+        - copy para redes
+        - respuesta a comentarios
+        - calendario de contenido
+      optional_support:
+        - report-generation
+    - name: browser_navigation
+      routes_to: browser
+      keywords:
+        - browser
+        - navegador
+        - web
+        - pagina
+        - url
+        - login
+        - formulario
+        - click
+        - pestana
+        - navegar
+        - sitio
+      optional_support:
+        - critical-info-auditor
+        - software-engineering
     - name: coding_work
       routes_to: software-engineering
       keywords:
@@ -59,7 +147,6 @@ routing:
         - api
         - script
         - integracion
-        - automatizacion
       ask_if_missing:
         - stack
         - alcance
@@ -114,7 +201,10 @@ skills:
       - skill-maintainer
       - respuesta-simple
     can_delegate_to:
+      - browser
       - google-drive
+      - eloqiant-n8n
+      - automation-builder
       - software-engineering
       - data-analysis
       - report-generation
@@ -173,6 +263,78 @@ skills:
       - "ruta local confirmada"
       - "modo de acceso confirmado"
       - "lista corta de archivos relevantes"
+
+  - name: eloqiant-n8n
+    domain: automation
+    role: worker
+    summary: "Guia simple para conectar Eloqiant con n8n y explicar que puede o no puede hacer el agente."
+    aliases:
+      - n8n eloqiant
+      - eloqiant automation
+      - conectar n8n
+    use_when:
+      - "hay que conectar Eloqiant con n8n"
+      - "hay que explicar como usar workflows de n8n desde Eloqiant"
+      - "hay que guiar al usuario con API key, credentials y bloqueos comunes de n8n"
+    optional_dependencies:
+      - automation-builder
+      - respuesta-simple
+
+  - name: automation-builder
+    domain: automation
+    role: worker
+    summary: "Disena y adapta automatizaciones segun tecnologia elegida, con n8n como referencia destacada."
+    aliases:
+      - automation
+      - workflows
+      - n8n
+    use_when:
+      - "hay que definir, crear o explicar una automatizacion"
+      - "hay que elegir entre n8n, Make, Zapier, Power Automate o codigo"
+      - "hay que conectar apps, triggers, webhooks o pasos automaticos"
+    optional_dependencies:
+      - software-engineering
+      - critical-info-auditor
+
+  - name: browser
+    domain: browser
+    role: worker
+    summary: "Navega interfaces web con cuidado, verifica contexto y evita acciones irreversibles por error."
+    aliases:
+      - navegador
+      - web navigation
+      - web
+    use_when:
+      - "hay que abrir, recorrer o entender una interfaz web"
+      - "hay formularios, login, botones ambiguos o acciones sensibles en pantalla"
+      - "hay que extraer informacion visible sin improvisar clics"
+    environments:
+      - codex
+      - claude-code
+      - cursor
+      - cloud-no-skills
+    optional_dependencies:
+      - critical-info-auditor
+      - software-engineering
+    handoff_outputs:
+      - "estado actual de la pagina"
+      - "siguiente paso seguro"
+      - "riesgos o bloqueos visibles"
+
+  - name: community-manager
+    domain: social
+    role: worker
+    summary: "Crea y adapta contenido para redes sociales segun plataforma, tono y uso de emojis."
+    aliases:
+      - social media
+      - redes
+      - community
+    use_when:
+      - "hay que escribir posts, captions, replies o ideas para redes sociales"
+      - "hay que adaptar un mensaje a Instagram, LinkedIn, TikTok, X u otra plataforma social"
+      - "hay que definir tono, personalidad o emojis para una marca o publicacion"
+    optional_dependencies:
+      - respuesta-simple
 
   - name: data-analysis
     domain: analytics

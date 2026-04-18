@@ -2,6 +2,7 @@
 
 ## Default Behavior
 
+- Load `catalog/context-index.md` first for quick routing, then open detailed files only if needed.
 - Use simple answers by default.
 - Assume the user is non-technical unless they clearly ask for technical depth.
 - Keep one calm and clear assistant voice.

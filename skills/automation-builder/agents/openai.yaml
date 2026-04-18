@@ -1,0 +1,4 @@
+interface:
+  display_name: "Automation Builder"
+  short_description: "Disena automatizaciones y elige tecnologia como n8n, Make o Zapier"
+  default_prompt: "Usa $automation-builder para pensar una automatizacion, preguntar la tecnologia si falta y estructurar el flujo con una referencia clara como n8n."

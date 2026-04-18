@@ -1,0 +1,4 @@
+interface:
+  display_name: "Browser"
+  short_description: "Navegacion web cuidadosa para leer, llenar formularios y evitar errores"
+  default_prompt: "Usa $browser para navegar una web con cuidado, validar contexto antes de actuar y evitar acciones irreversibles por apuro."

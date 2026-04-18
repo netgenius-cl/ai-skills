@@ -5,6 +5,7 @@ Esta carpeta organiza el catalogo para que pueda crecer sin volver el repo inman
 ## Principios
 
 - `netgenius` es la puerta de entrada.
+- `context-index.md` es la carga minima para contexto rapido.
 - `skill-maintainer` asegura, instala, actualiza o prepara skills cuando hace falta.
 - Las skills de trabajo viven separadas por responsabilidad.
 - El orquestador consulta el indice antes de decidir.
@@ -14,11 +15,12 @@ Esta carpeta organiza el catalogo para que pueda crecer sin volver el repo inman
 
 ## Flujo
 
-1. `netgenius` detecta el tipo de trabajo.
-2. Consulta `skills-index.yaml`.
-3. Si falta una skill importante, pide ayuda a `skill-maintainer`.
-4. Usa la skill correcta.
-5. Devuelve una respuesta simple al usuario final.
+1. `netgenius` carga `context-index.md` si necesita orientacion rapida.
+2. Detecta el tipo de trabajo.
+3. Consulta `skills-index.yaml` solo si hace falta mas detalle.
+4. Si falta una skill importante, pide ayuda a `skill-maintainer`.
+5. Usa la skill correcta.
+6. Devuelve una respuesta simple al usuario final.
 
 ## Que debe resolver el indice
 
@@ -40,13 +42,18 @@ Usar [model-guidance.md](./model-guidance.md) como capa separada para:
 ## Casos importantes
 
 - Si la persona habla de carpetas de Drive, rutas sincronizadas o enlaces compartidos, priorizar `google-drive`.
+- Si la persona habla de automatizaciones, workflows, webhooks o n8n, priorizar `automation-builder`.
+- Si la persona habla de navegar una web, login, formularios, botones o URL, priorizar `browser`.
 - Si hay codigo pero el stack no esta claro, no elegir tecnologia todavia: hacer una sola pregunta simple.
+- Si hay automatizacion y no esta clara la tecnologia o las integraciones, aclararlo primero desde el orquestador.
 - Si el trabajo es mixto, usar una skill principal y sumar solo el menor numero de apoyos posible.
 
 ## Dominios iniciales
 
 - `maintenance`
 - `storage`
+- `automation`
+- `browser`
 - `engineering`
 - `analytics`
 - `reporting`

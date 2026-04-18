@@ -1,6 +1,6 @@
 ---
 name: software-engineering
-description: Ingenieria de software para diseno, implementacion, debugging, refactor, APIs, integraciones, testing y mantenimiento de codigo. Usar cuando Codex necesite trabajar en codigo, arquitectura, bugs, automatizacion o cambios tecnicos de producto.
+description: Ingenieria de software para diseno, implementacion, debugging, refactor, APIs, integraciones, testing y mantenimiento de codigo. Usar cuando Codex necesite trabajar en codigo, arquitectura, bugs, integraciones tecnicas, automatizacion basada en codigo o cambios tecnicos de producto.
 ---
 
 # Software Engineering
@@ -21,7 +21,7 @@ Resolver trabajo de codigo con criterio tecnico y salida clara.
 - nuevas funciones
 - refactors
 - APIs e integraciones
-- automatizacion
+- automatizacion basada en codigo
 - tests
 - mantenimiento tecnico
 

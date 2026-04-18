@@ -1,0 +1,4 @@
+interface:
+  display_name: "Eloqiant n8n"
+  short_description: "Ayuda a conectar Eloqiant con n8n de forma simple"
+  default_prompt: "Usa $eloqiant-n8n para ayudarme a conectar Eloqiant con n8n y explicarme el siguiente paso en simple."
