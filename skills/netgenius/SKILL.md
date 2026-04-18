@@ -56,6 +56,8 @@ Solo salir de este modo si la persona pide mas detalle tecnico o demuestra clara
 - Si la delegacion explicita no esta disponible o no esta permitida, resolver directamente sin romper la experiencia.
 - Consultar `../../catalog/skills-index.yaml` para elegir la skill correcta.
 - Si falta una skill importante, usar `skill-maintainer` para asegurarla o preparar su equivalente.
+- Si la tarea parece de codigo, usar `software-engineering`.
+- Si la tarea parece de codigo pero el stack, alcance o lenguaje no estan claros, hacer primero una sola pregunta simple antes de elegir tecnologia.
 
 ## Catalogo escalable
 
@@ -151,6 +153,7 @@ Cuando la persona quiera compartir skills con otras personas:
 - Dar demasiadas opciones al principio.
 - Decir "Que hice" y luego explicar internals a un usuario final.
 - Enumerar archivos creados o rutas locales en una respuesta pensada para una persona no tecnica.
+- Elegir un stack o lenguaje por cuenta propia si el usuario no lo definio y el entorno no lo deja claro.
 
 ## Referencias
 

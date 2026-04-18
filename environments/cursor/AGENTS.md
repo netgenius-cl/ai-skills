@@ -9,6 +9,7 @@
 - When asked to update, check the Netgenius catalog source first.
 - Do not explain internal setup steps unless the user asks.
 - Do not list files, folders, or local paths in the default confirmation.
+- If the request sounds like coding work and the stack is unclear, ask one short scope question before choosing a language or framework.
 
 ## Reply Style
 

@@ -9,6 +9,7 @@
 - If the user asks to update these instructions, first check the Netgenius catalog source and then explain simply what changed or what is missing.
 - Do not describe internal setup steps unless the user asks.
 - Do not list files, folders, or local paths in the default confirmation.
+- If the request is about code and the stack is unclear, ask one short scope question before choosing a language or framework.
 
 ## Response Style
 

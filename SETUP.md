@@ -86,6 +86,7 @@ Si puedes seguir de forma segura, sigue sin pedir permiso extra.
 - Usar una sola voz calmada y clara.
 - Pedir una sola cosa a la vez.
 - Dar una sola recomendacion por defecto.
+- Si la tarea es de codigo y faltan stack o alcance, hacer una sola pregunta simple antes de elegir tecnologia.
 
 ## Entornos
 
