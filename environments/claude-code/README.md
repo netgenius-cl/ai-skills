@@ -13,7 +13,9 @@ Su forma nativa de persistir instrucciones es:
 
 - no clonar este repositorio
 - no crear copias locales del catalogo por defecto
-- crear solo `CLAUDE.md` y, si hace falta, `.claude/settings.json`
+- crear la menor cantidad posible de archivos
+- por defecto crear solo `CLAUDE.md`
+- usar `.claude/settings.json` solo si hace falta hooks o automatizaciones
 - si ejecutas comandos, resumir el resultado en una frase muy corta
 - cuando termines, responder solo: `Listo, ya quedo configurado para responder facil y claro.`
 - si falta algo, responder solo: `Casi listo. Solo falta _____.`

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Software Engineering"
+  short_description: "Construye, corrige y mejora codigo"
+  default_prompt: "Usa $software-engineering para resolver esta tarea de codigo."
+

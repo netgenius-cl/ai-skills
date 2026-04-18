@@ -64,6 +64,7 @@ Pensar este repo como un catalogo grande:
 - `netgenius` orquesta
 - `skill-maintainer` mantiene e instala
 - las skills de dominio resuelven trabajo especializado
+- `software-engineering` cubre trabajo de codigo y producto tecnico
 
 No cargar todo a la vez. Elegir solo la skill minima necesaria para el problema actual.
 

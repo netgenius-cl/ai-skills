@@ -108,6 +108,7 @@ Sirve para reforzar la capa de explicacion clara y amable cuando el usuario fina
 
 ## Dominios iniciales
 
+- `software-engineering`: codigo, bugs, integraciones y automatizacion
 - `data-analysis`: analisis de datos y metricas
 - `report-generation`: informes y resumentes ejecutivos
 - `web-dashboard-builder`: dashboards web interactivos

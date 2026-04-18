@@ -71,3 +71,14 @@ skills:
       - data-analysis
       - report-generation
 
+  - name: software-engineering
+    domain: engineering
+    role: worker
+    summary: "Resuelve trabajo de codigo, bugs, features, integraciones y mantenimiento tecnico."
+    use_when:
+      - "hay que escribir o modificar codigo"
+      - "hay bugs, refactors o automatizacion"
+      - "hay tareas tecnicas de producto"
+    optional_dependencies:
+      - critical-info-auditor
+      - report-generation

@@ -14,8 +14,9 @@ Su forma nativa de persistir instrucciones es:
 
 - no clonar este repositorio
 - no crear carpetas tipo `.netgenius` por defecto
-- crear solo los archivos nativos de Cursor que hagan falta
-- preferir `AGENTS.md` y `.cursor/rules`
+- crear la menor cantidad posible de archivos
+- por defecto crear solo `AGENTS.md`
+- usar `.cursor/rules` solo si la persona lo pide
 - usar `environment.json` solo si realmente se necesita
 - si ejecutas comandos, resumir el resultado en una frase muy corta
 - cuando termines, responder solo: `Listo, ya quedo configurado para responder facil y claro.`
@@ -24,8 +25,8 @@ Su forma nativa de persistir instrucciones es:
 ## Que aplicar
 
 - usar [AGENTS.md](./AGENTS.md) para una version simple
-- usar [.cursor/rules/netgenius.mdc](./.cursor/rules/netgenius.mdc) para una version mas estructurada
-- usar [environment.json](./environment.json) si quieres preparar background agents
+- usar [.cursor/rules/netgenius.mdc](./.cursor/rules/netgenius.mdc) solo si hace falta una version mas estructurada
+- usar [environment.json](./environment.json) solo si quieres preparar background agents
 
 ## Regla de uso
 

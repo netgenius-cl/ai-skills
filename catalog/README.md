@@ -21,8 +21,8 @@ Esta carpeta organiza el catalogo para que pueda crecer sin volver el repo inman
 ## Dominios iniciales
 
 - `maintenance`
+- `engineering`
 - `analytics`
 - `reporting`
 - `dashboards`
 - `assurance`
-

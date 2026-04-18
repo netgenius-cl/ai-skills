@@ -43,6 +43,7 @@ Si empiezas por ahi, lo estas interpretando mal.
 - No crear copias locales del catalogo por defecto.
 - Leer solo los archivos necesarios de este repositorio.
 - Crear solo los archivos nativos del entorno actual.
+- Minimizar la huella en el proyecto: crear un solo archivo por defecto cuando sea posible.
 - No explicar pasos internos salvo que la persona lo pida.
 - No listar archivos, carpetas o rutas en la respuesta final salvo que la persona lo pida.
 - Si ejecutas comandos, resumir el resultado en una frase muy corta.
@@ -102,20 +103,22 @@ Hacer esto:
 Hacer esto:
 
 1. Crear o actualizar `CLAUDE.md` usando `environments/claude-code/CLAUDE.md`.
-2. Crear o actualizar `.claude/settings.json` solo si hace falta hooks.
+2. No crear `.claude/settings.json` salvo que la persona pida hooks o automatizaciones.
 3. No clonar este repo.
 4. No dar instrucciones de Python, virtualenv o git clone.
+5. Por defecto dejar solo `CLAUDE.md`.
 
 ### Cursor
 
 Hacer esto:
 
 1. Crear o actualizar `AGENTS.md` usando `environments/cursor/AGENTS.md`.
-2. Crear o actualizar `.cursor/rules/netgenius.mdc` si el entorno usa rules.
-3. Crear o actualizar `environment.json` solo si realmente se necesita background agents.
+2. No crear `.cursor/rules/netgenius.mdc` salvo que la persona pida rules persistentes adicionales.
+3. No crear `environment.json` salvo que la persona pida background agents.
 4. No clonar este repo.
 5. No crear carpetas tipo `.netgenius` por defecto.
 6. No responder con un tutorial de entorno de desarrollo.
+7. Por defecto dejar solo `AGENTS.md`.
 
 ### Agentes en la nube sin skills
 
