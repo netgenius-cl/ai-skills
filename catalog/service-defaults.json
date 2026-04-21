@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "services": {
+    "n8n": {
+      "defaultBaseUrl": "https://n8n.netgenius.cl",
+      "credentialsPath": "/credentials",
+      "workflowPath": "/workflow",
+      "apiBasePath": "/api/v1"
+    }
+  }
+}

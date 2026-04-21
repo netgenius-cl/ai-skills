@@ -11,15 +11,16 @@ Resolver workflows de n8n via API con estructura clara, sin secretos hardcodeado
 
 ## Instancia
 
-- URL: `https://n8n.eloqiant.com`
+- URL: `https://n8n.netgenius.cl`
 - auth header: `X-N8N-API-KEY: {token}`
 
 ## Regla de instancia
 
 Si se detecta `n8n` y la persona no indica otra instancia:
 
-- usar `https://n8n.eloqiant.com` por defecto
-- asumir Eloqiant como camino base
+- leer `../../catalog/service-defaults.json`
+- usar `https://n8n.netgenius.cl` por defecto
+- asumir la instancia compartida de Netgenius como camino base
 - solo cambiar de instancia si la persona da otra URL o dice claramente que usa otro n8n
 
 ## Token
@@ -81,7 +82,7 @@ Cuando esta skill toma un caso de `n8n`, es la ruta principal.
 
 Para trabajo de workflows en `n8n`:
 
-- usar API de `n8n.eloqiant.com`
+- usar API de `n8n.netgenius.cl`
 - usar archivos temporales y respaldos locales
 - usar notas en `docs/` para workflows grandes
 - no usar `browser` para construir o editar workflows
@@ -129,7 +130,7 @@ Lista base:
 Si el workflow se crea o actualiza bien:
 
 - usar el `id` real devuelto o confirmado por el refetch
-- compartir el enlace directo: `https://n8n.eloqiant.com/workflow/<id>`
+- compartir el enlace directo: `https://n8n.netgenius.cl/workflow/<id>`
 - no decir que esta listo antes de confirmar la carga con un `GET` final
 - si el refetch falla, no prometer que quedo bien
 
@@ -278,7 +279,7 @@ Para la lista ampliada de campos que rompen el `PUT`, ver [references/payload-ru
 ### Crear
 
 ```bash
-curl -s -X POST "https://n8n.eloqiant.com/api/v1/workflows" \
+curl -s -X POST "https://n8n.netgenius.cl/api/v1/workflows" \
   -H "X-N8N-API-KEY: $TOKEN" \
   -H "Content-Type: application/json" \
   -d @workflow.json
@@ -289,12 +290,12 @@ Guardar el `id` de respuesta para futuras modificaciones.
 ### Modificar
 
 ```bash
-curl -s "https://n8n.eloqiant.com/api/v1/workflows/{id}" \
+curl -s "https://n8n.netgenius.cl/api/v1/workflows/{id}" \
   -H "X-N8N-API-KEY: $TOKEN" > wf.json
 ```
 
 ```bash
-curl -s -X PUT "https://n8n.eloqiant.com/api/v1/workflows/{id}" \
+curl -s -X PUT "https://n8n.netgenius.cl/api/v1/workflows/{id}" \
   -H "X-N8N-API-KEY: $TOKEN" \
   -H "Content-Type: application/json" \
   -d @wf-put.json > wf-result.json
@@ -303,12 +304,12 @@ curl -s -X PUT "https://n8n.eloqiant.com/api/v1/workflows/{id}" \
 ### Activar o desactivar
 
 ```bash
-curl -s -X POST "https://n8n.eloqiant.com/api/v1/workflows/{id}/activate" \
+curl -s -X POST "https://n8n.netgenius.cl/api/v1/workflows/{id}/activate" \
   -H "X-N8N-API-KEY: $TOKEN"
 ```
 
 ```bash
-curl -s -X POST "https://n8n.eloqiant.com/api/v1/workflows/{id}/deactivate" \
+curl -s -X POST "https://n8n.netgenius.cl/api/v1/workflows/{id}/deactivate" \
   -H "X-N8N-API-KEY: $TOKEN"
 ```
 

@@ -24,6 +24,7 @@ Sirve para orientarse rapido y abrir solo el archivo minimo necesario.
 - para ruteo fino por palabras gatillo y apoyos: `catalog/skills-index.yaml`
 - para modos o recomendacion de modelos: `catalog/model-guidance.md`
 - para vigencia o mantenimiento: `catalog/update-policy.json`
+- para instancias, URLs y rutas por defecto: `catalog/service-defaults.json`
 - para instrucciones completas de una skill: `skills/<nombre>/SKILL.md`
 
 ## Mapa corto de skills
@@ -33,7 +34,7 @@ Sirve para orientarse rapido y abrir solo el archivo minimo necesario.
 - `skill-maintainer`: instala, actualiza o prepara skills faltantes
 - `google-drive`: archivos de Drive, rutas sincronizadas y enlaces de Drive
 - `n8n-workflow-builder`: crea, modifica y respalda workflows concretos de n8n via API
-- `eloqiant-n8n`: conexion simple de Eloqiant con n8n y ruta por defecto cuando se menciona n8n
+- `eloqiant-n8n`: conexion simple de la instancia compartida de n8n cuando faltan token, credenciales o acceso
 - `automation-builder`: automatizaciones, workflows, webhooks y eleccion de tecnologia como n8n
 - `browser`: web, URL, login, formularios y lectura cuidadosa de interfaces
 - `community-manager`: redes sociales, posts, captions, replies, tono y emojis
@@ -47,8 +48,9 @@ Sirve para orientarse rapido y abrir solo el archivo minimo necesario.
 
 - Drive o carpeta sincronizada: ir a `google-drive`
 - crear, modificar o respaldar workflow en n8n: ir a `n8n-workflow-builder`
-- n8n o Eloqiant + n8n: ir a `eloqiant-n8n`
-- si dicen `n8n` sin otra URL: asumir `https://n8n.eloqiant.com`
+- conectar n8n, token, API key, login o credenciales: ir a `eloqiant-n8n`
+- crear, modificar, respaldar o desplegar un workflow en n8n: ir a `n8n-workflow-builder`
+- si hace falta una URL por defecto de n8n: leer `catalog/service-defaults.json`
 - automatizacion, workflow, Make, Zapier o webhook: ir a `automation-builder`
 - navegador, URL, login o formulario: ir a `browser`
 - redes sociales, Instagram, LinkedIn, TikTok, caption o community manager: ir a `community-manager`
@@ -70,5 +72,6 @@ Sirve para orientarse rapido y abrir solo el archivo minimo necesario.
 
 1. `catalog/context-index.md`
 2. `catalog/skills-index.yaml` solo si hace falta detalle de ruteo
-3. `catalog/model-guidance.md` solo si hay decision de modo o modelo
-4. `skills/<nombre>/SKILL.md` solo para la skill elegida
+3. `catalog/service-defaults.json` solo si hacen falta instancias, URLs o rutas por defecto
+4. `catalog/model-guidance.md` solo si hay decision de modo o modelo
+5. `skills/<nombre>/SKILL.md` solo para la skill elegida

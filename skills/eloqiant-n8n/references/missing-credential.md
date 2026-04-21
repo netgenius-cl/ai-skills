@@ -6,7 +6,7 @@ Usar esta referencia cuando el workflow necesita una credencial que aun no exist
 
 Para este workflow necesitas una credencial conectada en n8n.
 
-1. Ve a `https://n8n.eloqiant.com/credentials`
+1. Ve a `https://n8n.netgenius.cl/credentials`
 2. Crea la credencial que falta
 3. Vuelve y dime el nombre exacto que usaste
 

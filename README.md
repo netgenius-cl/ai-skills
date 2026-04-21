@@ -56,6 +56,7 @@ Si un agente recibe una instruccion como "lee este README y configura este entor
 
 - [catalog/](./catalog/README.md): indice y arquitectura escalable del catalogo
 - [catalog/context-index.md](./catalog/context-index.md): indice corto para cargar primero en contexto
+- [catalog/service-defaults.json](./catalog/service-defaults.json): instancias, URLs y rutas por defecto
 - [catalog/model-guidance.md](./catalog/model-guidance.md): guia viva de modelos, modos y politica de refresco
 - [skills/](./skills/): skills nativas de Codex
 - [environments/antigravity/](./environments/antigravity/README.md): guia para Antigravity
@@ -107,12 +108,20 @@ Ese catalogo incluye:
 - `skills/`
 - `catalog/`
 - `environments/`
+- `local/`
 - `README.md`
 - `SETUP.md`
+- `.gitignore`
+
+Ademas, si existe el plugin local de Codex, el refresco debe dejarlo alineado con la misma fuente.
 
 La instalacion o refresco local se hace con:
 
 `npm run netgenius:install`
+
+Validacion rapida:
+
+`npm run netgenius:validate`
 
 ## Skill principal
 
@@ -167,6 +176,7 @@ Antes, si necesita una carga minima, puede leer [catalog/context-index.md](./cat
 - primero detectar intencion
 - luego elegir una skill principal
 - sumar apoyos solo si hacen falta
+- si hace falta una URL o instancia por defecto, leer `catalog/service-defaults.json`
 - si faltan archivos o una skill, llamar a `skill-maintainer`
 - si el pedido es de automatizacion y falta tecnologia, preguntar una sola cosa corta antes de enrutar
 - si el pedido es de automatizacion y faltan integraciones especificas, aclararlas desde el orquestador

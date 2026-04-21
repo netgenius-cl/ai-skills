@@ -1,11 +1,11 @@
 ---
 name: eloqiant-n8n
-description: Conexion simple entre Eloqiant y n8n para usuarios no tecnicos. Usar cuando Codex necesite explicar como conectar n8n en Eloqiant, pedir la API key de n8n de forma simple, aclarar que el agente puede o no puede hacer, guiar cuando falta una credencial como Gmail o WhatsApp, o ayudar a listar, crear, activar o desactivar workflows desde Eloqiant.
+description: Conexion simple entre Netgenius, Eloqiant y la instancia compartida de n8n para usuarios no tecnicos. Usar cuando Codex necesite explicar como conectar n8n, pedir la API key de n8n de forma simple, aclarar que el agente puede o no puede hacer, guiar cuando falta una credencial como Gmail o WhatsApp, o ayudar a listar, crear, activar o desactivar workflows.
 ---
 
 # Eloqiant n8n
 
-Resolver la conexion de Eloqiant con n8n en lenguaje simple y sin tecnicismos innecesarios.
+Resolver la conexion con la instancia compartida de n8n en lenguaje simple y sin tecnicismos innecesarios.
 
 ## Objetivo
 
@@ -13,14 +13,15 @@ Resolver la conexion de Eloqiant con n8n en lenguaje simple y sin tecnicismos in
 - explicar el siguiente paso mas simple
 - dejar claro el bloqueo comun de las credenciales
 - hablar como ayuda de producto, no como especificacion tecnica
-- asumir Eloqiant como camino por defecto si la persona menciona `n8n`
+- asumir la instancia compartida de Netgenius como camino por defecto si la persona menciona `n8n` para acceso o credenciales
 
 ## Regla de instancia
 
 Si se detecta `n8n` y no hay otra URL o instancia explicita:
 
-- asumir `https://n8n.eloqiant.com`
-- hablar de `n8n.eloqiant.com` como opcion por defecto
+- revisar `../../catalog/service-defaults.json`
+- asumir `https://n8n.netgenius.cl`
+- hablar de `n8n.netgenius.cl` como opcion por defecto
 - no preguntar `que n8n usas` salvo que realmente haya senales de otra instancia
 - si la persona comparte otra URL, usar esa y dejar de asumir Eloqiant
 
@@ -87,7 +88,7 @@ Si no hay token local, pedirlo con este texto simple:
 
 Para conectarlo necesito tu token de n8n.
 
-1. entra a `https://n8n.eloqiant.com`
+1. entra a `https://n8n.netgenius.cl`
 2. inicia sesion
 3. ve a `Settings` -> `API`
 4. crea una API key nueva
@@ -104,7 +105,7 @@ Para el texto exacto extendido, ver [references/connect-tutorial.md](references/
 
 Usar este camino simple:
 
-1. entrar a `https://n8n.eloqiant.com/credentials`
+1. entrar a `https://n8n.netgenius.cl/credentials`
 2. crear la credencial que falta
 3. volver y decir el nombre exacto de esa credencial
 

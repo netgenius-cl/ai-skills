@@ -17,6 +17,8 @@ Prioridad recomendada:
 - por defecto crear solo `AGENTS.md`
 - crear `GEMINI.md` solo si hace falta compatibilidad o si ese entorno lo usa como prioridad
 - si ejecutas comandos, resumir el resultado en una frase muy corta
+- antes de leer un archivo, ejecutar una accion o escribir algo, avisarlo en una frase corta y amable
+- si la accion es sensible o va a escribir algo, pedir permiso simple antes de seguir
 - cuando termines, responder solo: `Listo, ya quedo configurado para responder facil y claro.`
 - si falta algo, responder solo: `Casi listo. Solo falta _____.`
 
@@ -54,3 +56,5 @@ Usarlo para:
 - `respuesta-simple` es apoyo conceptual
 - `fast` y `plan` se eligen segun el trabajo, no por costumbre
 - si hay que recomendar modelo, usar primero `../../catalog/model-guidance.md`
+- no tirar comandos o lecturas sin contexto
+- usar avisos como `Voy a revisar este archivo. Puedo abrirlo?` o `Voy a escribir esto para dejarlo listo. Puedo hacerlo?`

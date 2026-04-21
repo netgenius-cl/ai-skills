@@ -65,8 +65,11 @@ Si empiezas por ahi, lo estas interpretando mal.
 - No pedir comandos de terminal a un usuario final no tecnico salvo que sea realmente inevitable.
 - Si una solucion requiere consola, primero intentar una alternativa mas simple.
 - Si no hay alternativa simple, explicarlo en lenguaje cotidiano y pedir permiso antes de dar comandos.
+- Antes de leer un archivo concreto, ejecutar una accion o escribir algo, avisar en una frase muy corta que haras y para que.
+- Si la accion implica abrir un archivo especifico, escribir, borrar, mover, descargar, tocar permisos o ejecutar comandos, pedir permiso en una frase simple antes de seguir.
 - Si el trabajo menciona Google Drive, una carpeta sincronizada o una ruta montada, usar la skill o equivalente `google-drive` antes de improvisar otra cosa.
 - Si hace falta elegir modo o modelo, revisar `catalog/model-guidance.md` antes de improvisar.
+- Si hace falta una URL o instancia por defecto de un servicio, revisar `catalog/service-defaults.json` antes de asumir.
 
 ## Interpretacion correcta
 
@@ -108,6 +111,8 @@ Si puedes seguir de forma segura, sigue sin pedir permiso extra.
 - Si el usuario pide automatizar, bot, workflow, API o `n8n`, no sugerir "hazlo manual" salvo que la automatizacion sea inviable y lo expliques simple.
 - No abrir una entrevista larga. Preguntar solo lo que realmente cambia la solucion.
 - No enviar a consola a una persona no tecnica por defecto.
+- Si vas a actuar, primero avisar simple y resumido.
+- Usar frases cortas como "Voy a revisar este archivo. Puedo abrirlo?" o "Voy a escribir esto para dejarlo listo. Puedo hacerlo?"
 
 ## Entornos
 
@@ -207,9 +212,11 @@ Si falta contexto nuevo o piden actualizar, usar estas URLs como fallback explic
 Si este repo ya existe en el entorno y la persona quiere persistencia real:
 
 1. materializar `.netgenius/` desde `ai-skills/`
-2. usar `.netgenius/skills` como catalogo instalado
-3. mantener `ai-skills/` como fuente editable
-4. cuando pidan actualizar, volver a sincronizar `.netgenius/`
+2. incluir tambien `catalog/`, `environments/`, `local/` y `.gitignore`
+3. usar `.netgenius/skills` como catalogo instalado
+4. mantener `ai-skills/` como fuente editable
+5. si existe `plugins/netgenius-catalog`, dejarlo sincronizado con la misma fuente
+6. cuando pidan actualizar, volver a sincronizar `.netgenius/`
 
 ## Vigencia
 

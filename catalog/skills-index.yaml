@@ -5,27 +5,37 @@ maintainer_skill: skill-maintainer
 routing:
   defaults:
     response_mode: simple
+    prefer_fast_mode_when_safe: true
     assume_non_technical: true
     ask_one_scope_question_if_unclear: true
     minimize_project_footprint: true
     prefer_existing_tools_and_paths: true
     optimize_internal_tokens: true
+    prefer_shortest_sufficient_answer: true
+    avoid_repeating_user_context: true
+    load_minimum_context_before_answering: true
+    explain_actions_briefly_before_running_them: true
+    ask_before_sensitive_reads_writes_or_commands: true
     keep_user_facing_tone_warm: true
     consult_model_guidance_before_recommending_models: true
     model_guidance_file: catalog/model-guidance.md
+    service_defaults_file: catalog/service-defaults.json
   decision_order:
     - "Si el usuario no sabe que skill usar, empezar por netgenius."
     - "Si falta una skill, una plantilla o una traduccion al entorno, llamar a skill-maintainer."
+    - "Si hace falta una URL, instancia o ruta por defecto, consultar service-defaults.json antes de asumir."
     - "Si el pedido menciona Drive, carpetas sincronizadas, enlaces compartidos o archivos en la nube, evaluar google-drive antes de otras skills."
     - "Si el pedido trata de crear, modificar, respaldar o desplegar un workflow en n8n, evaluar n8n-workflow-builder antes de eloqiant-n8n."
-    - "Si el pedido menciona n8n, evaluar eloqiant-n8n antes de automation-builder."
-    - "Si el pedido menciona n8n y no aparece otra URL o instancia, asumir https://n8n.eloqiant.com por defecto."
+    - "Si el pedido menciona n8n para conectar acceso, token, API key, credenciales o login, evaluar eloqiant-n8n."
+    - "Si el pedido menciona n8n como tecnologia para una automatizacion, evaluar automation-builder antes de software-engineering."
     - "Si el pedido trata de automatizaciones, workflows, Make, Zapier, Power Automate o bots conectados, evaluar automation-builder antes de software-engineering."
     - "Si el pedido trata de redes sociales, community manager, posts, captions o respuestas para cuentas sociales, evaluar community-manager antes de browser."
     - "Si el pedido menciona navegador, browser, web, URL, login, formulario, click o una interfaz web, evaluar browser antes de pensar en codigo."
     - "Si el pedido es de codigo pero el stack o alcance no estan claros, preguntar una sola cosa simple antes de enrutar."
     - "Si el pedido incluye eleccion de modo o modelo, consultar model-guidance.md."
     - "Si el trabajo mezcla varias areas, elegir una skill principal y sumar solo apoyos minimos."
+    - "Antes de leer un archivo concreto, ejecutar una accion o escribir algo, avisar en una frase corta que haras y para que."
+    - "Si la accion toca archivos concretos, escritura, borrado, permisos, red o algo sensible, pedir permiso en una frase simple antes de seguir."
   intents:
     - name: unknown_or_mixed
       routes_to: netgenius
@@ -61,20 +71,19 @@ routing:
       optional_support:
         - eloqiant-n8n
         - automation-builder
-    - name: eloqiant_n8n_work
+    - name: n8n_connection_work
       routes_to: eloqiant-n8n
       keywords:
-        - n8n
-        - eloqiant
-        - eloqiant n8n
-        - n8n eloqiant
         - conectar n8n
-        - conectar eloqiant
-        - workflow en eloqiant
-        - workflows en eloqiant
+        - acceso n8n
+        - login n8n
+        - token n8n
         - credencial n8n
         - credentials n8n
         - api key n8n
+        - instancia n8n
+        - eloqiant n8n
+        - n8n eloqiant
       optional_support:
         - automation-builder
         - respuesta-simple
@@ -303,14 +312,14 @@ skills:
   - name: eloqiant-n8n
     domain: automation
     role: worker
-    summary: "Guia simple para conectar Eloqiant con n8n y explicar que puede o no puede hacer el agente."
+    summary: "Guia simple para conectar la instancia compartida de n8n y explicar que puede o no puede hacer el agente."
     aliases:
       - n8n eloqiant
-      - eloqiant automation
+      - netgenius n8n
       - conectar n8n
     use_when:
-      - "hay que conectar Eloqiant con n8n"
-      - "hay que explicar como usar workflows de n8n desde Eloqiant"
+      - "hay que conectar la instancia compartida de n8n"
+      - "hay que explicar como usar workflows de n8n desde Netgenius o Eloqiant"
       - "hay que guiar al usuario con API key, credentials y bloqueos comunes de n8n"
     optional_dependencies:
       - n8n-workflow-builder
@@ -320,7 +329,7 @@ skills:
   - name: automation-builder
     domain: automation
     role: worker
-    summary: "Disena y adapta automatizaciones segun tecnologia elegida, con n8n como referencia destacada."
+    summary: "Disena y adapta automatizaciones segun tecnologia elegida, con foco en pedir solo el siguiente dato que cambia la solucion."
     aliases:
       - automation
       - workflows

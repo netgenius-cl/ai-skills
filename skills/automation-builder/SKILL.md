@@ -21,8 +21,9 @@ Si falta la tecnologia, hacer una sola pregunta corta:
 - "Que tecnologia quieres usar para esto: n8n, Make, Zapier, Power Automate o codigo?"
 
 Si la tecnologia ya esta clara, no volver a preguntar.
-Si la persona ya dijo `n8n`, derivar primero a la ruta `eloqiant-n8n` salvo que la persona pida explicitamente una comparacion o un uso fuera de Eloqiant.
-Si ademas pide crear, modificar, respaldar o desplegar un workflow concreto, derivar a `n8n-workflow-builder`.
+Si la persona ya dijo `n8n` y lo que falta es acceso, token, API key o credenciales, derivar a `eloqiant-n8n`.
+Si la persona ya dijo `n8n` y ademas pide crear, modificar, respaldar o desplegar un workflow concreto, derivar a `n8n-workflow-builder`.
+Si la persona ya dijo `n8n` pero todavia esta definiendo el flujo, quedarse aqui.
 
 ## Limite con el orquestador
 
@@ -30,6 +31,7 @@ Si ademas pide crear, modificar, respaldar o desplegar un workflow concreto, der
 - esta skill debe asumir que idealmente ya llegan aclaradas
 - si faltan y bloquean el diseno, pedir una sola aclaracion simple
 - no mandar al usuario a una solucion manual si ya pidio automatizacion o bot
+- no desviar a otra skill si aqui ya se puede resolver el siguiente paso con poco contexto
 
 Ejemplo de integraciones que deberian venir claras:
 

@@ -6,7 +6,7 @@ Usar esta referencia cuando n8n aun no este conectado en Eloqiant.
 
 Para conectarlo necesito tu token de n8n.
 
-1. Ve a `https://n8n.eloqiant.com`
+1. Ve a `https://n8n.netgenius.cl`
 2. Inicia sesion
 3. Ve a `Settings` -> `API`
 4. Crea una API key nueva

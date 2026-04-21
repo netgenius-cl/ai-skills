@@ -15,7 +15,9 @@
 - If the request sounds like coding work and the stack is unclear, ask one short scope question before choosing a language or framework.
 - Do not suggest terminal commands first to a non-technical user.
 - Check `catalog/model-guidance.md` before recommending a model family.
-- If n8n is mentioned, assume the Eloqiant n8n path first.
+- Check `catalog/service-defaults.json` before assuming a default service URL.
+- Before opening a specific file, running an action, or writing something, explain it in one short friendly sentence.
+- If the action is sensitive, writes a file, changes state, or needs a command, ask permission first in simple words.
 
 ## Reply Style
 
@@ -23,3 +25,5 @@
 - Use common words.
 - Ask for one thing at a time.
 - End with one clear recommendation.
+- Use short notices like `I can open this file to check it. Want me to?`
+- Use short notices like `I can write this file to leave it ready. Want me to do it?`
